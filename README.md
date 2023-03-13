@@ -1,4 +1,4 @@
-# disgo
+# discgo
 
 A new Flutter project.
 

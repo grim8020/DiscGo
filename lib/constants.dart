@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 const kHomeTitle = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
 const kGreenColor = Color(0xFF2da042);
 
-const kDropDownMenuText =
-    TextStyle(fontWeight: FontWeight.w400, fontSize: 15.0);
+const kButtonText = TextStyle(fontWeight: FontWeight.w400, fontSize: 15.0);
 
 const kBoxShadow = BoxDecoration(
   boxShadow: [
@@ -22,3 +22,13 @@ const kLargeButtonTextStyle =
     TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0);
 
 const kBottomContainerHeight = 80.0;
+
+const kTextField = TextField(
+  obscureText: true,
+  decoration: InputDecoration(
+    border: OutlineInputBorder(),
+    labelText: 'Password',
+  ),
+);
+
+const kPaddingLogin = EdgeInsets.symmetric(vertical: 8.0, horizontal: 25.0);

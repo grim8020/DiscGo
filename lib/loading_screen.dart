@@ -1,72 +1,99 @@
 import 'package:flutter/material.dart';
-
-import 'constants.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  State<LoadingScreen> createState() => _LoadingScreenState();
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: kGreenColor,
-        title: Text('DiscGo: Fantasy Disc Golf'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          //crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
-                padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
-                decoration: BoxDecoration(
-                  //color: Colors.grey.shade800,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(20.0),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.green.shade600,
+              Colors.green.shade100,
+            ],
+          ),
+          //borderRadius: BorderRadius.all(
+          //Radius.circular(20.0),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 100,
+              ),
+              CircleAvatar(
+                radius: 150,
+                backgroundColor: Colors.green,
+                child: Padding(
+                  padding: const EdgeInsets.all(15), // Border radius
+                  child: ClipOval(
+                    child: Image.asset('images/DiscGo.png'),
                   ),
                 ),
-                child: Image.asset(
-                  'images/DiscGo.png',
-                  height: 400,
-                  width: 400,
+              ),
+              SizedBox(height: 100),
+              Image(
+                image: AssetImage('images/grimlab.png'),
+                height: 40,
+              ),
+              SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.all(45.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  child: Text(
+                    'CONTINUE',
+                    style: GoogleFonts.leagueSpartan(
+                      textStyle: Theme.of(context).textTheme.labelSmall,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 20.0, horizontal: 20.0),
+                      elevation: 10,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0),
+                        side:
+                            BorderSide(color: Colors.green.shade700, width: 5),
+                      ),
+                      backgroundColor: Colors.green),
                 ),
               ),
-            ),
-            Container(
-              child: Text(
-                'This weeks events...',
-                style: kHomeTitle,
-              ),
-            ),
-            SizedBox(height: 15.0),
-            GestureDetector(
-              child: Container(
-                padding: EdgeInsets.all(20.0),
-                child: Text('EVENT DROPDOWN MENU', style: kDropDownMenuText),
-                decoration: BoxDecoration(
-                  color: kGreenColor,
-                  border: Border.all(style: BorderStyle.solid, width: 3.0),
-                  borderRadius: BorderRadius.circular(25.0),
-                ),
-              ),
-              onTap: () {
-                setState(() {
-                  Navigator.pushNamed(context, '/playerField');
-                });
-              },
-            ),
-            Container(
-              padding: EdgeInsets.all(70.0),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-      //bottomNavigationBar: NavBar(),
     );
   }
 }
+
+// @override
+// void initState() {
+//   super.initState();
+// }
+
+// @override
+// Widget build(BuildContext context) {
+//   return Scaffold(
+//     body: Center(
+//       child: SpinKitRotatingCircle(
+//         color: Colors.white,
+//         size: 100.0,
+//       ),
+//     ),
+//   );
+// }

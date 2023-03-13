@@ -8,7 +8,7 @@ class Tier1Page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kGreenColor,
-        title: Text('DiscGo: Fantasy Disc Golf'),
+        title: Text('DiscGo: DeGen Disc Golf'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
