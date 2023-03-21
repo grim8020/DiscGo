@@ -38,6 +38,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_spinkit: ^5.1.0
   google_fonts: ^4.0.3
+  url_launcher: ^6.1.10
+  flutter_lorem: ^2.0.0
+  http: ^0.13.5
+
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +72,13 @@ flutter:
     - images/google48.png
     - images/disc_golf_course.png
     - images/grimlab.png
+    - images/Disc Golf Player.png
+    - images/welcome_player.png
+    - images/course.png
+    - images/course_play.png
+    - images/course_play_1.png
+    - images/field.png
+    - images/about_pic.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

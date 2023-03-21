@@ -1,35 +1,53 @@
 import 'package:disgo/screens/search_page.dart';
 import 'package:flutter/material.dart';
 
-var kAppBar = Padding(
-  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      IconButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/searchPage');
-        },
-        icon: Icon(Icons.search),
-      ),
-      CircleAvatar(
-        radius: 50,
-        backgroundColor: Colors.green,
-        child: Padding(
-          padding: const EdgeInsets.all(10), // Border radius
-          child: ClipOval(
-            child: Image.asset(
-              'images/DiscGo.png',
-              fit: BoxFit.scaleDown,
+class kAppBar extends StatelessWidget {
+  kAppBar(
+      {required this.onPressedSearch,
+      required this.onPressedProfile,
+      required this.onPressedHome});
+
+  final VoidCallback onPressedSearch;
+  final VoidCallback onPressedProfile;
+  final VoidCallback onPressedHome;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          IconButton(
+            onPressed: onPressedSearch,
+            icon: Icon(Icons.search),
+          ),
+          SizedBox(
+            width: 100,
+            height: 100,
+            child: IconButton(
+              onPressed: onPressedHome,
+              icon: Container(
+                width: 120.0,
+                height: 120.0,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(width: 5, color: Colors.green),
+                    image: DecorationImage(
+                        image: AssetImage(
+                      'images/DiscGo.png',
+                    ))),
+              ),
             ),
           ),
-        ),
+          IconButton(
+            onPressed: onPressedProfile,
+            icon: Icon(Icons.person_2),
+          ),
+        ],
       ),
-      IconButton(
-        onPressed: () {},
-        icon: Icon(Icons.person_2),
-      ),
-    ],
-  ),
-);
+    );
+    ;
+  }
+}

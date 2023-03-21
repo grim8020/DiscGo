@@ -1,14 +1,17 @@
 import 'package:disgo/add_icon_button.dart';
-import 'package:disgo/appBar.dart';
-import 'package:disgo/bottom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:disgo/bottom_nav_back_bar.dart';
 import 'package:disgo/components.dart';
 
-class Tier1Page extends StatelessWidget {
+class LineupBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavBackBar(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          context: context),
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -93,16 +96,6 @@ class Tier1Page extends StatelessWidget {
                   left: 240,
                   child: AddIcon(onPressed: () {}) //CircularAvatar
                   ),
-              Container(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: BackButtonGreen(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      color: Colors.white),
-                ),
-              ),
             ],
           ),
         ),

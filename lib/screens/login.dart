@@ -1,6 +1,7 @@
 import 'package:disgo/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:disgo/bottom_nav_back_bar.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -12,9 +13,17 @@ class _LoginState extends State<Login> {
   double y = 0;
   double z = 0;
 
+  FocusNode focusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavBackBar(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          context: context),
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -41,7 +50,7 @@ class _LoginState extends State<Login> {
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 350,
+                    height: 300,
                     child: Image(
                       image: AssetImage('images/disc_golf_course.png'),
                       fit: BoxFit.fitWidth,
@@ -85,11 +94,13 @@ class _LoginState extends State<Login> {
                   )
                 ],
               ),
-              SizedBox(height: 25),
+              // SizedBox(height: 25),
               Padding(
                 padding: kPaddingLogin,
                 child: TextField(
-                  obscureText: true,
+                  autofocus: true,
+                  keyboardType: TextInputType.emailAddress,
+                  obscureText: false,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Username',
@@ -103,7 +114,7 @@ class _LoginState extends State<Login> {
                     Navigator.pushNamed(context, '/passwordLogin');
                   },
                   child: Text(
-                    'LOGIN',
+                    'CONTINUE WITH EMAIL',
                     style: GoogleFonts.leagueSpartan(
                       textStyle: Theme.of(context).textTheme.labelSmall,
                     ),
@@ -120,89 +131,19 @@ class _LoginState extends State<Login> {
                       backgroundColor: Colors.green),
                 ),
               ),
-              Padding(
-                padding: kPaddingLogin,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.green[700]!, width: 5.0),
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: IconButton(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 30.0),
-                        onPressed: () {},
-                        icon: Icon(Icons.apple),
-                      ),
-                    ),
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.green[700]!, width: 5.0),
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: IconButton(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 30.0),
-                        onPressed: () {},
-                        icon: Icon(Icons.cloud),
-                      ),
-                    ),
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.green[700]!, width: 5.0),
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: Offset(0, 3), // changes position of shadow
-                          ),
-                        ],
-                      ),
-                      child: IconButton(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10.0, horizontal: 30.0),
-                          icon: ImageIcon(
-                            AssetImage(
-                              'images/google48.png',
-                            ),
-                          ),
-                          onPressed: () {}),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  child: Text('OR'),
-                ),
-              ),
+              // Padding(
+              //   padding: kPaddingLogin,
+              //   child: Column(
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: [],
+              //   ),
+              // ),
+              // Align(
+              //   alignment: Alignment.center,
+              //   child: Container(
+              //     child: Text('OR'),
+              //   ),
+              // ),
               Padding(
                 padding: kPaddingLogin,
                 child: ElevatedButton(
@@ -210,7 +151,7 @@ class _LoginState extends State<Login> {
                     Navigator.pushNamed(context, '/register');
                   },
                   child: Text(
-                    'REGISTER',
+                    'REGISTER WITH EMAIL',
                     style: GoogleFonts.leagueSpartan(
                       textStyle: Theme.of(context).textTheme.labelSmall,
                     ),
@@ -227,6 +168,9 @@ class _LoginState extends State<Login> {
                       backgroundColor: Colors.green),
                 ),
               ),
+              SizedBox(
+                height: 50,
+              )
             ],
           ),
         ),

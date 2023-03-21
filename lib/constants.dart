@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'screens/login.dart';
 
 const kHomeTitle = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
 
@@ -31,4 +31,4 @@ const kTextField = TextField(
   ),
 );
 
-const kPaddingLogin = EdgeInsets.symmetric(vertical: 8.0, horizontal: 25.0);
+const kPaddingLogin = EdgeInsets.symmetric(horizontal: 35.0);

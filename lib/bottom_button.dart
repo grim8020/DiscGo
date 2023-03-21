@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
-
 class BottomButton extends StatelessWidget {
   BottomButton({required this.onTap, required this.buttonTitle});
 
@@ -11,18 +9,20 @@ class BottomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, '/lineupBuilder');
+      },
       child: Container(
         child: Center(
           child: Text(
             buttonTitle,
-            style: kLargeButtonTextStyle,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
-        color: kGreenColor,
+        color: Colors.green,
         //padding: EdgeInsets.only(bottom: 20.0),
         width: double.infinity,
-        height: kBottomContainerHeight,
+        height: 70,
       ),
     );
   }

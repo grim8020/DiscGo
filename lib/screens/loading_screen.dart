@@ -25,55 +25,68 @@ class _LoadingScreenState extends State<LoadingScreen> {
           //borderRadius: BorderRadius.all(
           //Radius.circular(20.0),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 100,
-              ),
-              CircleAvatar(
-                radius: 150,
-                backgroundColor: Colors.green,
-                child: Padding(
-                  padding: const EdgeInsets.all(15), // Border radius
-                  child: ClipOval(
-                    child: Image.asset('images/DiscGo.png'),
-                  ),
+        child: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: 75,
                 ),
-              ),
-              SizedBox(height: 100),
-              Image(
-                image: AssetImage('images/grimlab.png'),
-                height: 40,
-              ),
-              SizedBox(height: 100),
-              Padding(
-                padding: const EdgeInsets.all(45.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/login');
-                  },
-                  child: Text(
-                    'CONTINUE',
-                    style: GoogleFonts.leagueSpartan(
-                      textStyle: Theme.of(context).textTheme.labelSmall,
+                CircleAvatar(
+                  radius: 150,
+                  backgroundColor: Colors.green,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15), // Border radius
+                    child: ClipOval(
+                      child: Image.asset('images/DiscGo.png'),
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 20.0, horizontal: 20.0),
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
-                        side:
-                            BorderSide(color: Colors.green.shade700, width: 5),
-                      ),
-                      backgroundColor: Colors.green),
                 ),
-              ),
-            ],
+                SizedBox(height: 75),
+                Center(child: Text('Developed by')),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Image(
+                      image: AssetImage('images/grimlab.png'),
+                      height: 50,
+                    ),
+                    Text(
+                      'Trottwell',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    )
+                  ],
+                ),
+                SizedBox(height: 50),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Text(
+                      'CONTINUE',
+                      style: GoogleFonts.leagueSpartan(
+                        textStyle: Theme.of(context).textTheme.labelSmall,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 20.0, horizontal: 20.0),
+                        elevation: 10,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                          side: BorderSide(
+                              color: Colors.green.shade700, width: 5),
+                        ),
+                        backgroundColor: Colors.green),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
