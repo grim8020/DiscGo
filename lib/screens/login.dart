@@ -100,7 +100,7 @@ class _LoginState extends State<Login> {
                 padding: kPaddingLogin,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/login');
+                    Navigator.pushNamed(context, '/passwordLogin');
                   },
                   child: Text(
                     'LOGIN',

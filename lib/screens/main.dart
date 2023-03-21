@@ -1,11 +1,13 @@
 import 'package:disgo/constants.dart';
 import 'package:disgo/home.dart';
 import 'package:disgo/login.dart';
+import 'package:disgo/passwordLogin.dart';
 import 'package:disgo/player_field_page.dart';
 import 'package:disgo/register.dart';
 import 'package:disgo/tier_pages/tier1_page.dart';
 import 'package:disgo/tier_pages/tier2_page.dart';
 import 'package:disgo/tier_pages/tier3_page.dart';
+import 'package:disgo/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'loading_screen.dart';
@@ -36,6 +38,8 @@ class FantasyDiscGolf extends StatelessWidget {
         '/login': (context) => Login(),
         '/home': (context) => Home(),
         '/register': (context) => Register(),
+        '/passwordLogin': (context) => PasswordLogin(),
+        '/welcomeScreen': (context) => WelcomeScreen(),
       },
     );
   }
