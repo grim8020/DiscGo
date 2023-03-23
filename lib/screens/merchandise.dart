@@ -28,9 +28,15 @@ class Merchandise extends StatelessWidget {
                     Navigator.pushNamed(context, '/profile');
                   },
                 ),
-                Text('Merchandise'),
-                SizedBox(
+                Container(
+                  width: double.infinity,
                   height: 30,
+                  child: Text('Merchandise'),
+                  color: Colors.grey,
+                  alignment: Alignment.center,
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -41,22 +47,88 @@ class Merchandise extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: MerchandiseCardSizeColor(
+                            gender: 'Male',
                             merchImage: 'images/white_t.png',
-                            merchName: 'DiscGo Large Logo T-Shirt',
+                            size: 'Large',
+                            merchName: 'DiscGo Front Logo T-Shirt',
                             merchPrice: '19.99',
+                            color: 'White',
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: MerchandiseCardSizeColor(
-                              merchImage:
-                                  'https://skogmarks.b-cdn.net/5545-medium_default/garphyttan-t-shirt-long-sleeve-green.jpg',
-                              merchName: 'Disco Long Sleeve T-Shirt',
-                              merchPrice: '23.00'),
-                        )
+                            gender: 'Male',
+                            merchImage: 'images/male_small.png',
+                            size: 'Large',
+                            merchName: 'DiscGo Small Logo T-Shirt',
+                            merchPrice: '19.99',
+                            color: 'Grey',
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: MerchandiseCardSizeColor(
+                            gender: 'Female',
+                            merchImage: 'images/woman_black_t.png',
+                            size: 'Large',
+                            merchName: 'DiscGo Front Logo T-Shirt',
+                            merchPrice: '19.99',
+                            color: 'Black',
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: MerchandiseCardSizeColor(
+                            gender: 'Female',
+                            merchImage: 'images/woman_grey_t.png',
+                            size: 'Large',
+                            merchName: 'DiscGo Front Logo T-Shirt',
+                            merchPrice: '19.99',
+                            color: 'Grey',
+                          ),
+                        ),
                       ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .8,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/checkout');
+                    },
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.shopping_basket,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          Text('Checkout',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall
+                                  ?.copyWith(fontWeight: FontWeight.bold)),
+                        ],
+                      ),
                     ),
                   ),
                 ),

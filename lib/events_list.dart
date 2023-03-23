@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class HomeEventsList extends StatelessWidget {
@@ -11,7 +9,7 @@ class HomeEventsList extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 5),
       //color: Colors.grey,
       width: MediaQuery.of(context).size.width * 1,
-      height: MediaQuery.of(context).size.height * .2,
+      height: MediaQuery.of(context).size.height * .25,
       child: Center(
         child: Column(
           children: [
@@ -22,45 +20,47 @@ class HomeEventsList extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
-                    child: Expanded(
-                      child: SizedBox(
-                        height: 100,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            elevation: MaterialStateProperty.all(10),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                                side: BorderSide(
-                                    color: Colors.green.shade800, width: 5),
-                              ),
+                    child: SizedBox(
+                      height: 140,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(10),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.white, width: 7),
                             ),
                           ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/eventDetails');
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 10),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text(
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/eventDetails');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
                                   'Next Event',
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleLarge
-                                      ?.copyWith(color: Colors.white),
+                                      ?.copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w800),
                                 ),
-                                Text('5/20/2023'),
-                                Center(
-                                    child: Text(
-                                  'Gettysburg Battle Field Open',
-                                  textAlign: TextAlign.center,
-                                ))
-                              ],
-                            ),
+                              ),
+                              Text('5/20/2023'),
+                              Center(
+                                  child: Text(
+                                'Gettysburg Battle Field Open',
+                                textAlign: TextAlign.center,
+                              ))
+                            ],
                           ),
                         ),
                       ),
@@ -74,7 +74,7 @@ class HomeEventsList extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: SizedBox(
-                      height: 100,
+                      height: 140,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           elevation: MaterialStateProperty.all(10),

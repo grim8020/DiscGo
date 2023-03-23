@@ -83,6 +83,12 @@ flutter:
     - images/field.png
     - images/about_pic.png
     - images/white_t.png
+    - images/male_back_grey_t.png
+    - images/male_small_grey_t.png
+    - images/woman_black_t.png
+    - images/woman_grey_t.png
+    - images/woman_white_t.png
+    - images/male_small.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
