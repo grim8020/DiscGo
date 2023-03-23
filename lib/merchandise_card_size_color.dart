@@ -18,27 +18,39 @@ class MerchandiseCardSizeColor extends StatefulWidget {
 
 class _MerchandiseCardSizeColorState extends State<MerchandiseCardSizeColor> {
   //final VoidCallback onPressed;
-  bool isSelectedBlack = false;
-  bool isSelectedWhite = false;
-  bool isSelectedGreen = false;
+  // bool isSelectedBlack = false;
+  // bool isSelectedWhite = false;
+  // bool isSelectedGreen = false;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 10,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(width: 5, color: Colors.green),
+    return ElevatedButton(
+      style: ButtonStyle(
+        elevation: MaterialStateProperty.all(10),
+        backgroundColor: MaterialStateProperty.all(Colors.green),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+            side: BorderSide(width: 5, color: Colors.green.shade800),
+          ),
+        ),
       ),
+      onPressed: () {},
       child: Column(
         children: [
           Container(
-            width: 200,
-            height: 300,
-            child: Image.network(widget.merchImage),
+            width: MediaQuery.of(context).size.width * .6,
+            height: MediaQuery.of(context).size.height * .3,
+            child: Image.asset(widget.merchImage),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(widget.merchName),
+            child: Text(
+              widget.merchName,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall
+                  ?.copyWith(color: Colors.white),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -48,89 +60,6 @@ class _MerchandiseCardSizeColorState extends State<MerchandiseCardSizeColor> {
             padding: const EdgeInsets.all(8.0),
             child: Text('Colors:'),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      isSelectedBlack = !isSelectedBlack;
-                    });
-                  },
-                  child: Icon(
-                    Icons.circle_outlined,
-                    size: 40,
-                  ),
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(
-                      CircleBorder(),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(
-                        isSelectedBlack ? Colors.black : Colors.transparent),
-                  ),
-                ),
-                RawMaterialButton(
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundColor:
-                          isSelectedWhite ? Colors.black : Colors.transparent,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Icon(
-                            Icons.circle,
-                            color: Colors.grey,
-                            size: 50,
-                          ),
-                          Icon(
-                            Icons.circle,
-                            color: Colors.white,
-                            size: 45,
-                          ),
-                        ],
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        isSelectedWhite = !isSelectedWhite;
-                      });
-                    }),
-                RawMaterialButton(
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundColor:
-                          isSelectedGreen ? Colors.black : Colors.transparent,
-                      child: Icon(
-                        Icons.circle,
-                        color: Colors.green,
-                        size: 50,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        isSelectedGreen = !isSelectedGreen;
-                      });
-                    }),
-                RawMaterialButton(
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundColor:
-                          isSelectedGreen ? Colors.black : Colors.transparent,
-                      child: Icon(
-                        Icons.circle,
-                        color: Colors.grey,
-                        size: 50,
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        isSelectedGreen = !isSelectedGreen;
-                      });
-                    }),
-              ],
-            ),
-          )
         ],
       ),
     );

@@ -17,6 +17,7 @@ import 'package:disgo/screens/player_list.dart';
 import 'package:disgo/screens/profile.dart';
 import 'package:disgo/screens/register.dart';
 import 'package:disgo/screens/search_page_different.dart';
+import 'package:disgo/screens/tour_schedule.dart';
 import 'package:disgo/tier_pages/lineup_builder.dart';
 import 'package:disgo/tier_pages/tier2_page.dart';
 import 'package:disgo/tier_pages/tier3_page.dart';
@@ -88,6 +89,7 @@ class FantasyDiscGolf extends StatelessWidget {
         '/about': (context) => AboutUs(),
         '/eventDetails': (context) => EventDetails(),
         '/playInstructions': (context) => PlayInstructions(),
+        '/tourSchedule': (context) => TourSchedule(),
       },
     );
   }

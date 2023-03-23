@@ -9,7 +9,7 @@ class HomeEventsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 5),
-      color: Colors.grey,
+      //color: Colors.grey,
       width: MediaQuery.of(context).size.width * 1,
       height: MediaQuery.of(context).size.height * .2,
       child: Center(
@@ -20,38 +20,92 @@ class HomeEventsList extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Card(
-                    elevation: 10,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('Next Event'),
-                            Text('5/20/2023'),
-                            Text('Gettysburg Battle Field Open')
-                          ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Expanded(
+                      child: SizedBox(
+                        height: 100,
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            elevation: MaterialStateProperty.all(10),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: BorderSide(
+                                    color: Colors.green.shade800, width: 5),
+                              ),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/eventDetails');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  'Next Event',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleLarge
+                                      ?.copyWith(color: Colors.white),
+                                ),
+                                Text('5/20/2023'),
+                                Center(
+                                    child: Text(
+                                  'Gettysburg Battle Field Open',
+                                  textAlign: TextAlign.center,
+                                ))
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
+                SizedBox(
+                  width: 10,
+                ),
                 Expanded(
-                  child: Card(
-                    elevation: 10,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('Next Event'),
-                            Text('5/20/2023'),
-                            Text('Next Event')
-                          ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: SizedBox(
+                      height: 100,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(10),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(
+                                  color: Colors.green.shade800, width: 5),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/tourSchedule');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                'DGPT Tour Schedule',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(color: Colors.white),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -59,19 +113,40 @@ class HomeEventsList extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 10,
+            ),
             Expanded(
-              child: Card(
-                elevation: 10,
+              child: SizedBox(
+                width: double.infinity,
+                height: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  style: ButtonStyle(
+                    elevation: MaterialStateProperty.all(10),
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                        side:
+                            BorderSide(color: Colors.green.shade800, width: 5),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/playInstructions');
+                  },
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 5.0, horizontal: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text('Next Event'),
-                        Text('5/20/2023'),
-                        Text('Next Event')
+                        Text(
+                          'Play Instructions',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge
+                              ?.copyWith(color: Colors.white),
+                        ),
                       ],
                     ),
                   ),

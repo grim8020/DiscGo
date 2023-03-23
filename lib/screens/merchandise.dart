@@ -34,22 +34,30 @@ class Merchandise extends StatelessWidget {
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      MerchandiseCardSizeColor(
-                        merchImage:
-                            'https://moodle.com/wp-content/uploads/2021/06/22087-11.jpg',
-                        merchName: 'DiscGo Large Logo T-Shirt',
-                        merchPrice: '19.99',
-                      ),
-                      MerchandiseCardSizeColor(
-                          merchImage:
-                              'https://skogmarks.b-cdn.net/5545-medium_default/garphyttan-t-shirt-long-sleeve-green.jpg',
-                          merchName: 'Disco Long Sleeve T-Shirt',
-                          merchPrice: '23.00')
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MerchandiseCardSizeColor(
+                            merchImage: 'images/white_t.png',
+                            merchName: 'DiscGo Large Logo T-Shirt',
+                            merchPrice: '19.99',
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MerchandiseCardSizeColor(
+                              merchImage:
+                                  'https://skogmarks.b-cdn.net/5545-medium_default/garphyttan-t-shirt-long-sleeve-green.jpg',
+                              merchName: 'Disco Long Sleeve T-Shirt',
+                              merchPrice: '23.00'),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],

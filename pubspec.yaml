@@ -82,6 +82,7 @@ flutter:
     - images/course_play_1.png
     - images/field.png
     - images/about_pic.png
+    - images/white_t.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
