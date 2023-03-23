@@ -2,10 +2,14 @@ import 'package:disgo/add_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:disgo/bottom_nav_back_bar.dart';
 import 'package:disgo/components.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LineupBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       bottomNavigationBar: BottomNavBackBar(
           onPressed: () {
@@ -13,29 +17,26 @@ class LineupBuilder extends StatelessWidget {
           },
           context: context),
       body: Container(
-        width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('images/field.png'), fit: BoxFit.cover),
-        ),
+        width: double.infinity,
+        color: Color(0xFF89A485),
         child: SafeArea(
           child: Stack(
+            fit: StackFit.expand,
+            clipBehavior: Clip.none,
             children: [
-              // kAppBar(
-              //   onPressedSearch: () {
-              //     Navigator.pushNamed(context, '/searchPage');
-              //   },
-              //   onPressedHome: () {
-              //     Navigator.pushNamed(context, '/home');
-              //   },
-              //   onPressedProfile: () {
-              //     Navigator.pushNamed(context, '/profile');
-              //   },
-              // ),
+              Container(
+                width: width,
+                height: height,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('images/field.png'), fit: BoxFit.cover),
+                ),
+              ),
+              //Tier 1 Name & Points
               Positioned(
-                  top: 85,
-                  left: 50,
+                  top: height * 0.125,
+                  left: width * 0.13,
                   child: TierNames(
                     tierName: 'Tier 1',
                     tierValue1: 1035,
@@ -44,19 +45,20 @@ class LineupBuilder extends StatelessWidget {
                   ),
               //Tier 1 A
               Positioned(
-                  top: 65,
-                  right: 125,
+                  top: height * 0.105,
+                  left: width * 0.52,
                   child: AddIcon(onPressed: () {}) //CircularAvatar
                   ),
               //Tier 1 B
               Positioned(
-                  top: 175,
-                  right: 140,
+                  top: height * 0.225,
+                  left: width * 0.49,
                   child: AddIcon(onPressed: () {}) //CircularAvatar
                   ),
+              // Tier 2 name & Points
               Positioned(
-                  top: 350,
-                  right: 50,
+                  top: height * 0.4,
+                  left: width * 0.58,
                   child: TierNames(
                     tierName: 'Tier 2',
                     tierValue1: 1021,
@@ -65,19 +67,20 @@ class LineupBuilder extends StatelessWidget {
                   ),
               //Tier 2 A
               Positioned(
-                  top: 300,
-                  left: 75,
+                  top: height * 0.33,
+                  left: width * 0.24,
                   child: AddIcon(onPressed: () {}) //CircularAvatar
                   ),
               //Tier 2 B
               Positioned(
-                  top: 425,
-                  left: 115,
+                  top: height * 0.46,
+                  left: width * 0.29,
                   child: AddIcon(onPressed: () {}) //CircularAvatar
                   ),
+              //Tier 3 Names & Points
               Positioned(
-                  bottom: 120,
-                  left: 50,
+                  top: height * 0.63,
+                  left: width * 0.13,
                   child: TierNames(
                     tierName: 'Tier 3',
                     tierValue1: 985,
@@ -86,16 +89,50 @@ class LineupBuilder extends StatelessWidget {
                   ),
               //Tier 3 A
               Positioned(
-                  bottom: 150,
-                  left: 175,
+                  top: height * 0.615,
+                  left: width * 0.45,
                   child: AddIcon(onPressed: () {}) //CircularAvatar
                   ),
               //Tier 3 B
               Positioned(
-                  bottom: 190,
-                  left: 240,
+                  top: height * 0.575,
+                  left: width * 0.58,
                   child: AddIcon(onPressed: () {}) //CircularAvatar
                   ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Text(
+                        'Submit Team',
+                        style: GoogleFonts.leagueSpartan(
+                          textStyle: Theme.of(context)
+                              .textTheme
+                              .bodyLarge
+                              ?.copyWith(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16),
+                        ),
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 20.0, horizontal: 20.0),
+                        elevation: 10,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                              color: Colors.green.shade700, width: 5),
+                        ),
+                        backgroundColor: Colors.white),
+                  ),
+                ),
+              )
             ],
           ),
         ),

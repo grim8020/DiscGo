@@ -1,5 +1,5 @@
 import 'package:disgo/constants.dart';
-import 'package:disgo/pdga_website.dart';
+import 'package:disgo/screens/pdga_website.dart';
 import 'package:disgo/screens/about_us_screen.dart';
 import 'package:disgo/screens/contest_history_screen.dart';
 import 'package:disgo/screens/contest_statistics.dart';
@@ -16,7 +16,7 @@ import 'package:disgo/screens/play_instructions.dart';
 import 'package:disgo/screens/player_list.dart';
 import 'package:disgo/screens/profile.dart';
 import 'package:disgo/screens/register.dart';
-import 'package:disgo/screens/search_page.dart';
+import 'package:disgo/screens/search_page_different.dart';
 import 'package:disgo/tier_pages/lineup_builder.dart';
 import 'package:disgo/tier_pages/tier2_page.dart';
 import 'package:disgo/tier_pages/tier3_page.dart';
@@ -80,7 +80,7 @@ class FantasyDiscGolf extends StatelessWidget {
         '/discGolfHowTo': (context) => DiscGolfHowTo(),
         '/meetThePros': (context) => MeetThePros(),
         '/merchandise': (context) => Merchandise(),
-        '/searchPage': (context) => SearchPage(),
+        '/searchPage': (context) => SearchPageDifferent(),
         '/contestHistory': (context) => ContestHistoryPage(),
         '/faqPage': (context) => FAQPage(),
         '/profile': (context) => ProfilePage(),

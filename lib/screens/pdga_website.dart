@@ -5,7 +5,7 @@
 //
 
 import 'package:disgo/appBar.dart';
-import 'package:disgo/components.dart';
+import 'package:disgo/bottom_nav_back_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,6 +20,11 @@ class _PDGAWebsiteState extends State<PDGAWebsite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavBackBar(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          context: context),
       body: Container(
         child: SafeArea(
           child: Container(
@@ -58,33 +63,6 @@ class _PDGAWebsiteState extends State<PDGAWebsite> {
                             Text('PDGA Website',
                                 style:
                                     Theme.of(context).textTheme.headlineLarge),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 250.0),
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.arrow_back,
-                              color: Colors.green,
-                              size: 15,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'BACK',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelSmall
-                                  ?.copyWith(color: Colors.green),
-                            ),
-                            //NavBackButton(),
                           ],
                         ),
                       ),

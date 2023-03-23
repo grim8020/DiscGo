@@ -41,6 +41,9 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_lorem: ^2.0.0
   http: ^0.13.5
+  search_page: ^2.3.0
+  material_floating_search_bar: ^0.3.7
+  random_name_generator: ^1.1.0
 
 
 dev_dependencies:

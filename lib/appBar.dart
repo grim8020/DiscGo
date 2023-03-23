@@ -1,4 +1,3 @@
-import 'package:disgo/screens/search_page.dart';
 import 'package:flutter/material.dart';
 
 class kAppBar extends StatelessWidget {
