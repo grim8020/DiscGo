@@ -35,7 +35,7 @@ class _PlayerListState extends State<PlayerList> {
                   },
                 ),
                 SizedBox(height: 15),
-                Text('Player List Page'),
+                Text('Select a Player'),
                 PlayerListView(),
               ],
             ),

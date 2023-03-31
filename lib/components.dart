@@ -72,7 +72,7 @@ class PlayerListCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(
-                Icons.add_circle,
+                Icons.arrow_forward,
                 size: 35,
               ),
             ],

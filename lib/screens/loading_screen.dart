@@ -45,20 +45,31 @@ class _LoadingScreenState extends State<LoadingScreen> {
                   ),
                 ),
                 SizedBox(height: 75),
-                Center(child: Text('Developed by')),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Image(
-                      image: AssetImage('images/grimlab.png'),
-                      height: 50,
-                    ),
-                    Text(
-                      'Trottwell',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    )
-                  ],
+                Container(
+                  child: Center(
+                    child: Text('Developed by'),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Image(
+                        image: AssetImage('images/grimlab.png'),
+                        height: 50,
+                      ),
+                      Text('&'),
+                      Text(
+                        'Trottwell llc',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(height: 50),
                 Padding(

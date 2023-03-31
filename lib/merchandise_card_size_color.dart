@@ -8,14 +8,16 @@ class MerchandiseCardSizeColor extends StatefulWidget {
     required this.merchName,
     required this.merchPrice,
     required this.color,
+    //required this.isSelected,
   });
 
   final String gender;
-  final String color;
   final String merchImage;
   final String merchName;
   final String merchPrice;
   final String size;
+  final String color;
+  //final bool isSelected;
 
   @override
   State<MerchandiseCardSizeColor> createState() =>
@@ -23,10 +25,9 @@ class MerchandiseCardSizeColor extends StatefulWidget {
 }
 
 class _MerchandiseCardSizeColorState extends State<MerchandiseCardSizeColor> {
-  //final VoidCallback onPressed;
-  // bool isSelectedBlack = false;
-  // bool isSelectedWhite = false;
-  // bool isSelectedGreen = false;
+  bool isSelected = false;
+  Color color = Colors.transparent;
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -49,7 +50,7 @@ class _MerchandiseCardSizeColorState extends State<MerchandiseCardSizeColor> {
             child: Image.asset(widget.merchImage),
           ),
           Text(
-            widget.gender,
+            '$widget.gender,',
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
                   color: Colors.black,
                 ),
@@ -76,12 +77,26 @@ class _MerchandiseCardSizeColorState extends State<MerchandiseCardSizeColor> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Colors:  ${widget.color}',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(color: Colors.black),
+            child: Container(
+              margin: EdgeInsets.only(
+                top: 8,
+                right: 15,
+              ),
+              padding: EdgeInsets.all(2.5),
+              height: 24,
+              width: 24,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: isSelected ? color : Colors.transparent,
+                ),
+              ),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: color,
+                  shape: BoxShape.circle,
+                ),
+              ),
             ),
           ),
         ],
@@ -89,13 +104,3 @@ class _MerchandiseCardSizeColorState extends State<MerchandiseCardSizeColor> {
     );
   }
 }
-
-// isSelectedBlack ? Colors.grey : Colors.transparent,
-
-// ClipRRect(
-// borderRadius: BorderRadius.circular(20),
-// child: Image.network(
-// 'https://hollywoodchamber.net/wp-content/uploads/2020/06/tshirt-2.jpg',
-// fit: BoxFit.cover,
-// ),
-// ),

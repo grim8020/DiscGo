@@ -50,8 +50,9 @@ class HomeEventsList extends StatelessWidget {
                                       .textTheme
                                       .titleLarge
                                       ?.copyWith(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w800),
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
                               ),
                               Text('5/20/2023'),

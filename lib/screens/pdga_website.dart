@@ -69,9 +69,9 @@ class _PDGAWebsiteState extends State<PDGAWebsite> {
                     ),
                   ],
                 ),
-                //SizedBox(
-                //height: 150,
-                // ),
+                SizedBox(
+                height: 150,
+                ),
               ],
             ),
           ),

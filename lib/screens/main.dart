@@ -1,4 +1,5 @@
 import 'package:disgo/constants.dart';
+import 'package:disgo/player_stats.dart';
 import 'package:disgo/screens/checkout.dart';
 import 'package:disgo/screens/pdga_website.dart';
 import 'package:disgo/screens/about_us_screen.dart';
@@ -92,6 +93,7 @@ class FantasyDiscGolf extends StatelessWidget {
         '/playInstructions': (context) => PlayInstructions(),
         '/tourSchedule': (context) => TourSchedule(),
         '/checkout': (context) => Checkout(),
+        '/playerStats': (context) => PlayerStats(),
       },
     );
   }

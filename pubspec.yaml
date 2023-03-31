@@ -44,6 +44,9 @@ dependencies:
   search_page: ^2.3.0
   material_floating_search_bar: ^0.3.7
   random_name_generator: ^1.1.0
+  html: ^0.15.2
+  csv: ^5.0.1
+
 
 
 dev_dependencies:
@@ -89,6 +92,7 @@ flutter:
     - images/woman_grey_t.png
     - images/woman_white_t.png
     - images/male_small.png
+    - csv_files/player_stats.csv
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
