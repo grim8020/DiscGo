@@ -47,7 +47,6 @@ dependencies:
   html: ^0.15.2
   csv: ^5.0.1
   file_picker: ^5.2.10
-  open_file: ^2.1.1
 
 
 

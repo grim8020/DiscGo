@@ -9,6 +9,12 @@ class Tier1Page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tier 1 Players'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(onPressed: () {}, icon: Icon(Icons.help)),
+          )
+        ],
       ),
       // bottomNavigationBar: BottomNavBackBar(
       //     onPressed: () {
