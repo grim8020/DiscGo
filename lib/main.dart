@@ -1,8 +1,6 @@
-import 'package:disgo/constants.dart';
 import 'package:disgo/player_stats.dart';
-import 'package:disgo/screens/checkout.dart';
-import 'package:disgo/screens/pdga_website.dart';
 import 'package:disgo/screens/about_us_screen.dart';
+import 'package:disgo/screens/checkout.dart';
 import 'package:disgo/screens/contest_history_screen.dart';
 import 'package:disgo/screens/contest_statistics.dart';
 import 'package:disgo/screens/disc_golf_how_to.dart';
@@ -13,21 +11,20 @@ import 'package:disgo/screens/login.dart';
 import 'package:disgo/screens/meet_the_pros.dart';
 import 'package:disgo/screens/merchandise.dart';
 import 'package:disgo/screens/passwordLogin.dart';
+import 'package:disgo/screens/pdga_website.dart';
 import 'package:disgo/screens/play_instructions.dart';
 //import 'package:disgo/player_field_page.dart';
 import 'package:disgo/screens/player_list.dart';
 import 'package:disgo/screens/profile.dart';
 import 'package:disgo/screens/register.dart';
-import 'package:disgo/screens/search_page_different.dart';
 import 'package:disgo/screens/tour_schedule.dart';
-import 'package:disgo/tier_pages/lineup_builder.dart';
-import 'package:disgo/tier_pages/tier2_page.dart';
-import 'package:disgo/tier_pages/tier3_page.dart';
 import 'package:disgo/screens/welcome_screen.dart';
+import 'package:disgo/tier_pages/lineup_builder.dart';
+import 'package:disgo/tier_pages/tier1_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'loading_screen.dart';
+import 'screens/loading_screen.dart';
 
 void main() => runApp(const FantasyDiscGolf());
 
@@ -83,7 +80,7 @@ class FantasyDiscGolf extends StatelessWidget {
         '/discGolfHowTo': (context) => DiscGolfHowTo(),
         '/meetThePros': (context) => MeetThePros(),
         '/merchandise': (context) => Merchandise(),
-        '/searchPage': (context) => SearchPageDifferent(),
+        //'/searchPage': (context) => SearchPageDifferent(),
         '/contestHistory': (context) => ContestHistoryPage(),
         '/faqPage': (context) => FAQPage(),
         '/profile': (context) => ProfilePage(),
@@ -94,6 +91,7 @@ class FantasyDiscGolf extends StatelessWidget {
         '/tourSchedule': (context) => TourSchedule(),
         '/checkout': (context) => Checkout(),
         '/playerStats': (context) => PlayerStats(),
+        '/tier1': (context) => Tier1Page(),
       },
     );
   }

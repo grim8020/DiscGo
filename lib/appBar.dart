@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class kAppBar extends StatelessWidget {
-  kAppBar(
-      {required this.onPressedSearch,
+  const kAppBar(
+      {super.key, required this.onPressedSearch,
       required this.onPressedProfile,
       required this.onPressedHome});
 

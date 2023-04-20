@@ -5,6 +5,8 @@ import 'package:disgo/tier_pages/lineup_builder.dart';
 import 'package:flutter/material.dart';
 
 class EventDetails extends StatefulWidget {
+  const EventDetails({super.key});
+
   @override
   State<EventDetails> createState() => _EventDetailsState();
 }

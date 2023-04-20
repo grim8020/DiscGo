@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:disgo/bottom_nav_back_bar.dart';
 
 class PlayerList extends StatefulWidget {
+  const PlayerList({super.key});
+
   @override
   _PlayerListState createState() => _PlayerListState();
 }
@@ -34,8 +36,8 @@ class _PlayerListState extends State<PlayerList> {
                     Navigator.pushNamed(context, '/profile');
                   },
                 ),
-                SizedBox(height: 15),
-                Text('Select a Player'),
+                const SizedBox(height: 15),
+                const Text('Select a Player'),
                 PlayerListView(),
               ],
             ),

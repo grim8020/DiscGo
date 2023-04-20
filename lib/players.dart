@@ -1,115 +1,124 @@
+import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
-import 'package:random_name_generator/random_name_generator.dart';
+import 'package:flutter/services.dart';
 
-List<String> player = [
-  'Jerome Turner',
-  'Benjamin Goodwin',
-  'Francisco Mills',
-  'Kari Norris',
-  'Gustavo Castro',
-  'Donald Jackson',
-  'Eileen Rios',
-  'Herbert Wise',
-  'Angela Blair',
-  'Brad Lynch',
-  'Chelsea Jimenez',
-  'Philip Cortez',
-  'Angelina Lyons',
-  'Grady Hughes',
-  'Danny Ruiz',
-  'Tracey Cummings',
-  'Roberta Yates',
-  'Jenna Adkins',
-  'Thomas Santiago',
-  'Marguerite Meyer',
-  'Delbert Watts',
-  'Marie Nash',
-  'Frances Sharp',
-  'Della Porter',
-  'Jeffrey Miles',
-  'Jay Flores',
-  'Wade Snyder',
-  'Jaime Elliott',
-  'Alfonso Daniels',
-  'Jennifer Murray',
-  'Rudy Sparks',
-  'Ruby Rhodes',
-  'Carolyn Ellis',
-  'Antoinette Schwartz',
-  'Diane Wade',
-  'Darryl Hale',
-  'Curtis Lewis',
-  'Glenn Curtis',
-  'Oliver Vaughn',
-  'Sandy Briggs',
-  'Ivan Schultz',
-  'Rita Marshall',
-  'Lee Bass',
-  'Lois Sanders',
-  'Marta Mitchell',
-  'Shawn Nichols',
-  'Wilma Gregory',
-  'Sheldon Ferguson',
-  'Jim Wallace',
-  'Darla Blake',
-  'Zachary Knight',
-  'Rachael Munoz',
-  'Jacqueline Reese',
-  'Jane Ramos',
-  'Clint Joseph',
-  'Louise Garner',
-  'Erma Pena',
-  'Gina Graves',
-  'Ted Moore',
-  'Natalie Rivera',
-  'Ruben Morgan',
-  'Guadalupe Lawson',
-  'James Delgado',
-  'Doyle Mcdonald',
-  'Erik Gordon',
-  'Christy Dennis',
-  'Keith Harmon',
-  'Molly Matthews',
-  'Edward Cannon',
-  'Carla Stanley',
-  'Elisa Russell',
-  'Jessie Gibbs',
-  'Tyrone Christensen',
-  'Richard Lindsey',
-  'Sherman Dean',
-  'Joshua Garza',
-  'Kay Nguyen',
-  'Terry Hicks',
-  'Tracy Soto',
-  'Nichole Jacobs',
-  'Sam Cook',
-  'Nina Andrews',
-  'Eloise Kelley',
-  'Ross Shaw',
-  'Alberta Burns',
-  'Lola Pratt',
-  'April Copeland',
-  'Katherine Powers',
-  'Billy Stokes',
-  'Beth Bell',
-  'Nathan Fitzgerald',
-  'Chester Burton',
-  'Shelly Allen',
-  'Jake Alvarado',
-  'Meghan Rose',
-  'Orlando Ford',
-  'Debra Cain',
-  'Cecelia Newton',
-  'Hazel Barton',
-  'Russell Robinson',
-];
+class Data extends StatefulWidget {
+  const Data({Key? key}) : super(key: key);
 
-// List<String> name() {
-//   var num = 1;
-//   while (num < 150) {
-//     String randomName = RandomNames(Zone.us).toString();
-//     player.add(randomName);
-//     num++;
-//   }
-//   return player;
-// }
+  @override
+  State<Data> createState() => _DataState();
+}
+
+class _DataState extends State<Data> {
+  List<List<dynamic>> _data = [];
+
+  void _loadCSV() async {
+    final rawData = await rootBundle.loadString("csv_files/player_stats.csv");
+    List<List<dynamic>> listData = const CsvToListConverter().convert(rawData);
+    setState(() {
+      _data = listData;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    _loadCSV();
+    return Scaffold(
+      // floatingActionButton: FloatingActionButton(
+      //   child: const Icon(Icons.add),
+      //   onPressed: _loadCSV,
+      // ),
+      body: ListView.builder(
+          itemCount: _data.length,
+          itemBuilder: (_, index) {
+            return Card(
+              margin: EdgeInsets.all(0),
+              //color: index == 1 ? Colors.white : Colors.black,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.green,
+                    radius: 20,
+                    child: Icon(
+                      Icons.person,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                  ),
+                  title: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5.0),
+                    child: Text(_data[index][0].toString()),
+                  ),
+                  subtitle: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                child: Row(
+                                  children: [
+                                    Text('FH'),
+                                    SizedBox(
+                                      width: 2,
+                                    ),
+                                    Text(_data[index][8].toString()),
+                                  ],
+                                ),
+                              ),
+                              Text(_data[index][9].toString()),
+                              Text(_data[index][10].toString()),
+                              Text(_data[index][11].toString()),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(_data[index][12].toString()),
+                              Text(_data[index][13].toString()),
+                              Text(_data[index][14].toString()),
+                              Text(_data[index][15].toString()),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(_data[index][16].toString()),
+                              Text(_data[index][17].toString()),
+                              Text(_data[index][18].toString()),
+                              Text(_data[index][19].toString()),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(_data[index][20].toString()),
+                              Text(_data[index][21].toString()),
+                              Text(_data[index][22].toString()),
+                              Text(_data[index][23].toString()),
+                            ],
+                          )
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text('Ranking'),
+                          Text(_data[index][2].toString()),
+                        ],
+                      ),
+                    ],
+                  ),
+                  trailing: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.add),
+                    padding: EdgeInsets.all(0),
+                  ),
+                ),
+              ),
+            );
+          }),
+    );
+  }
+}

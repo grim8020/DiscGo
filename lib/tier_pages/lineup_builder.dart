@@ -1,10 +1,16 @@
 import 'package:disgo/add_icon_button.dart';
-import 'package:flutter/material.dart';
 import 'package:disgo/bottom_nav_back_bar.dart';
-import 'package:disgo/components.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LineupBuilder extends StatelessWidget {
+class LineupBuilder extends StatefulWidget {
+  const LineupBuilder({super.key});
+
+  @override
+  State<LineupBuilder> createState() => _LineupBuilderState();
+}
+
+class _LineupBuilderState extends State<LineupBuilder> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -45,10 +51,14 @@ class LineupBuilder extends StatelessWidget {
                   ),
               //Tier 1 A
               Positioned(
-                  top: height * 0.105,
-                  left: width * 0.52,
-                  child: AddIcon(onPressed: () {}) //CircularAvatar
-                  ),
+                top: height * 0.105,
+                left: width * 0.52,
+                child: AddIcon(
+                  onPressed: () async {
+                    await Navigator.pushNamed(context, '/tier1');
+                  },
+                ), //CircularAvatar
+              ),
               //Tier 1 B
               Positioned(
                   top: height * 0.225,

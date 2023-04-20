@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AddIcon extends StatelessWidget {
-  AddIcon({required this.onPressed});
+  const AddIcon({super.key, required this.onPressed});
 
   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(
+      icon: const Icon(
         Icons.add_circle_outline,
         size: 50,
       ),
@@ -18,8 +18,8 @@ class AddIcon extends StatelessWidget {
 }
 
 class TierNames extends StatelessWidget {
-  TierNames(
-      {required this.tierName,
+  const TierNames(
+      {super.key, required this.tierName,
       required this.tierValue1,
       required this.tierValue2});
 
