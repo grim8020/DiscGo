@@ -19,7 +19,7 @@ class HomeFeaturedList extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 5),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/playerList');
+                  Navigator.pushNamed(context, '/searchPage');
                 },
                 child: Text(
                   'Players',

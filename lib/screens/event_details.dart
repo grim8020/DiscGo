@@ -1,7 +1,6 @@
 import 'package:disgo/appBar.dart';
 import 'package:disgo/bottom_button.dart';
 import 'package:disgo/components.dart';
-import 'package:disgo/tier_pages/lineup_builder.dart';
 import 'package:flutter/material.dart';
 
 class EventDetails extends StatefulWidget {
@@ -31,7 +30,7 @@ class _EventDetailsState extends State<EventDetails> {
         onTap: () {
           Navigator.pushNamed(context, '/lineupBuilder');
         },
-        buttonTitle: "Let's Play",
+        buttonTitle: "Let's Play!",
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -44,7 +43,7 @@ class _EventDetailsState extends State<EventDetails> {
                   Navigator.pushNamed(context, '/searchPage');
                 },
                 onPressedHome: () {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.popAndPushNamed(context, '/home');
                 },
                 onPressedProfile: () {
                   Navigator.pushNamed(context, '/profile');

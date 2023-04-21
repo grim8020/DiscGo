@@ -1,7 +1,7 @@
 import 'package:disgo/appBar.dart';
-import 'package:disgo/components.dart';
-import 'package:flutter/material.dart';
 import 'package:disgo/bottom_nav_back_bar.dart';
+import 'package:disgo/players.dart';
+import 'package:flutter/material.dart';
 
 class PlayerList extends StatefulWidget {
   const PlayerList({super.key});
@@ -38,7 +38,7 @@ class _PlayerListState extends State<PlayerList> {
                 ),
                 const SizedBox(height: 15),
                 const Text('Select a Player'),
-                PlayerListView(),
+                SingleChildScrollView(child: Data()),
               ],
             ),
           ),
