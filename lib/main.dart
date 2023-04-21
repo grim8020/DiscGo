@@ -17,6 +17,7 @@ import 'package:disgo/screens/play_instructions.dart';
 import 'package:disgo/screens/player_list.dart';
 import 'package:disgo/screens/profile.dart';
 import 'package:disgo/screens/register.dart';
+import 'package:disgo/screens/search_page_different.dart';
 import 'package:disgo/screens/tour_schedule.dart';
 import 'package:disgo/screens/welcome_screen.dart';
 import 'package:disgo/tier_pages/lineup_builder.dart';
@@ -80,7 +81,7 @@ class FantasyDiscGolf extends StatelessWidget {
         '/discGolfHowTo': (context) => DiscGolfHowTo(),
         '/meetThePros': (context) => MeetThePros(),
         '/merchandise': (context) => Merchandise(),
-        //'/searchPage': (context) => SearchPageDifferent(),
+        '/searchPage': (context) => SearchPage(),
         '/contestHistory': (context) => ContestHistoryPage(),
         '/faqPage': (context) => FAQPage(),
         '/profile': (context) => ProfilePage(),
