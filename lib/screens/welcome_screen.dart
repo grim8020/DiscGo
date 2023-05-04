@@ -1,4 +1,3 @@
-import 'package:disgo/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,30 +35,26 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
               Container(
                 alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 60.0, horizontal: 25.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/home');
-                    },
-                    child: Text(
-                      'START',
-                      style: GoogleFonts.leagueSpartan(
-                        textStyle: Theme.of(context).textTheme.labelSmall,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 20.0, horizontal: 125.0),
-                        elevation: 10,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                          side: BorderSide(
-                              color: Colors.green.shade700, width: 5),
-                        ),
-                        backgroundColor: Colors.green),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/home');
+                  },
+                  child: Text(
+                    'START',
+                    style: GoogleFonts.leagueSpartan(
+                        textStyle: Theme.of(context).textTheme.titleLarge,
+                        color: Colors.white),
                   ),
+                  style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 15.0, horizontal: 100.0),
+                      elevation: 10,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                        side:
+                            BorderSide(color: Colors.green.shade700, width: 5),
+                      ),
+                      backgroundColor: Colors.green),
                 ),
               ),
             ],

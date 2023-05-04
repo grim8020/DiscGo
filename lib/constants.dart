@@ -1,12 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'screens/login.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-const kHomeTitle = TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+var kHomeTitle = GoogleFonts.leagueSpartan(
+  fontSize: 35,
+  fontWeight: FontWeight.bold,
+  textStyle: TextStyle(color: Colors.black, letterSpacing: .5),
+);
 
 const kGreenColor = Color(0xFF2da042);
 
-const kButtonText = TextStyle(fontWeight: FontWeight.w400, fontSize: 15.0);
+var kButtonText = GoogleFonts.leagueSpartan(fontSize: 16);
 
 const kBoxShadow = BoxDecoration(
   boxShadow: [
@@ -18,8 +21,7 @@ const kBoxShadow = BoxDecoration(
   ],
 );
 
-const kLargeButtonTextStyle =
-    TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0);
+var kLargeButtonTextStyle = GoogleFonts.leagueSpartan(fontSize: 35);
 
 const kBottomContainerHeight = 80.0;
 

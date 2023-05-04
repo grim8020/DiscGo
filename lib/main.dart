@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:disgo/player_stats.dart';
 import 'package:disgo/screens/about_us_screen.dart';
 import 'package:disgo/screens/checkout.dart';
@@ -22,12 +23,18 @@ import 'package:disgo/screens/tour_schedule.dart';
 import 'package:disgo/screens/welcome_screen.dart';
 import 'package:disgo/tier_pages/lineup_builder.dart';
 import 'package:disgo/tier_pages/tier1_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'screens/loading_screen.dart';
 
-void main() => runApp(const FantasyDiscGolf());
+void main() => runApp(
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => const FantasyDiscGolf(),
+      ),
+    );
 
 class FantasyDiscGolf extends StatelessWidget {
   const FantasyDiscGolf({super.key});
@@ -37,6 +44,7 @@ class FantasyDiscGolf extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, //removes debug message in corner
       theme: ThemeData().copyWith(
+        textTheme: GoogleFonts.leagueSpartanTextTheme(),
         // cardTheme: CardTheme(
         //   elevation: 10,
         //   color: Colors.green,
@@ -62,7 +70,6 @@ class FantasyDiscGolf extends StatelessWidget {
           //colorScheme: ColorScheme.fromSwatch().copyWith(
           //secondary: Colors.white,
         ),
-        textTheme: GoogleFonts.leagueSpartanTextTheme(),
       ),
       initialRoute: '/',
       routes: {

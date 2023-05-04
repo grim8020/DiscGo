@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeEventsList extends StatelessWidget {
   const HomeEventsList({Key? key}) : super(key: key);
@@ -46,21 +47,43 @@ class HomeEventsList extends StatelessWidget {
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   'Next Event',
-                                  style: Theme.of(context)
+                                  style: GoogleFonts.leagueSpartan(
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall
+                                        ?.copyWith(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                '5/20/2023',
+                                style: GoogleFonts.leagueSpartan(
+                                  textStyle: Theme.of(context)
                                       .textTheme
-                                      .titleLarge
+                                      .bodyLarge
                                       ?.copyWith(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),
-                              Text('5/20/2023'),
                               Center(
-                                  child: Text(
-                                'Gettysburg Battle Field Open',
-                                textAlign: TextAlign.center,
-                              ))
+                                child: Text(
+                                  'Gettysburg Battle Field Open',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.leagueSpartan(
+                                    textStyle: Theme.of(context)
+                                        .textTheme
+                                        .labelLarge
+                                        ?.copyWith(
+                                          color: Colors.white,
+                                          // fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -100,10 +123,14 @@ class HomeEventsList extends StatelessWidget {
                               Text(
                                 'DGPT Tour Schedule',
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(color: Colors.white),
+                                style: GoogleFonts.leagueSpartan(
+                                  textStyle: Theme.of(context)
+                                      .textTheme
+                                      .titleLarge
+                                      ?.copyWith(
+                                        color: Colors.white,
+                                      ),
+                                ),
                               ),
                             ],
                           ),
@@ -143,10 +170,14 @@ class HomeEventsList extends StatelessWidget {
                       children: [
                         Text(
                           'Play Instructions',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge
-                              ?.copyWith(color: Colors.white),
+                          style: GoogleFonts.leagueSpartan(
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(
+                                  color: Colors.white,
+                                ),
+                          ),
                         ),
                       ],
                     ),

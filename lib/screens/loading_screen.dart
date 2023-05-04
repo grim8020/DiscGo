@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoadingScreen extends StatefulWidget {
+  const LoadingScreen({super.key});
+
   @override
   State<LoadingScreen> createState() => _LoadingScreenState();
 }
@@ -9,6 +11,8 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
+    double deviceHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -31,69 +35,80 @@ class _LoadingScreenState extends State<LoadingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(
-                  height: 75,
-                ),
-                CircleAvatar(
-                  radius: 150,
-                  backgroundColor: Colors.green,
-                  child: Padding(
-                    padding: const EdgeInsets.all(15), // Border radius
-                    child: ClipOval(
-                      child: Image.asset('images/DiscGo.png'),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 75),
-                Container(
-                  child: Center(
-                    child: Text('Developed by'),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Image(
-                        image: AssetImage('images/grimlab.png'),
-                        height: 50,
-                      ),
-                      Text('&'),
-                      Text(
-                        'Trottwell llc',
-                        style: Theme.of(context).textTheme.titleLarge,
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(height: 50),
-                Padding(
-                  padding: const EdgeInsets.all(30.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/login');
-                    },
-                    child: Text(
-                      'CONTINUE',
-                      style: GoogleFonts.leagueSpartan(
-                        textStyle: Theme.of(context).textTheme.labelSmall,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                            vertical: 20.0, horizontal: 20.0),
-                        elevation: 10,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0),
-                          side: BorderSide(
-                              color: Colors.green.shade700, width: 5),
+                Flexible(
+                  child: FractionallySizedBox(
+                    heightFactor: 1.5,
+                    child: CircleAvatar(
+                      radius: 150,
+                      backgroundColor: Colors.green,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15), // Border radius
+                        child: ClipOval(
+                          child: Image.asset('images/DiscGo.png'),
                         ),
-                        backgroundColor: Colors.green),
+                      ),
+                    ),
+                  ),
+                ),
+
+                SizedBox(height: 0.1 * deviceHeight),
+                Center(
+                  child: Text(
+                    'Developed by',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ),
+                // SizedBox(
+                //   height: 10,
+                // ),
+                Flexible(
+                  child: FractionallySizedBox(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        const Image(
+                          image: AssetImage('images/grimlab.png'),
+                          height: 50,
+                        ),
+                        const Padding(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                          child: Text('&'),
+                        ),
+                        Text(
+                          'Trottwell llc',
+                          style: Theme.of(context).textTheme.titleLarge,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 50),
+                Flexible(
+                  child: FractionallySizedBox(
+                    widthFactor: 0.6,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/login');
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 20.0, horizontal: 20.0),
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                            side: BorderSide(
+                                color: Colors.green.shade700, width: 5),
+                          ),
+                          backgroundColor: Colors.green),
+                      child: Text(
+                        'CONTINUE',
+                        style: GoogleFonts.leagueSpartan(
+                          textStyle: Theme.of(context).textTheme.labelSmall,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
