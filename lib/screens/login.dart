@@ -1,9 +1,11 @@
+import 'package:card_swiper/card_swiper.dart';
+import 'package:disgo/bottom_nav_back_bar.dart';
 import 'package:disgo/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:disgo/bottom_nav_back_bar.dart';
 
 class Login extends StatefulWidget {
+  const Login({super.key});
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -95,17 +97,56 @@ class _LoginState extends State<Login> {
                 ],
               ),
               // SizedBox(height: 25),
-              Padding(
-                padding: kPaddingLogin,
-                child: TextField(
-                  autofocus: true,
-                  keyboardType: TextInputType.emailAddress,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Username',
+
+              Column(
+                children: [
+                  Padding(
+                    padding: kPaddingLogin,
+                    child: TextField(
+                      autofocus: true,
+                      keyboardType: TextInputType.emailAddress,
+                      obscureText: false,
+                      onTapOutside: (event) {
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
+                        border: OutlineInputBorder(),
+                        labelText: 'USERNAME / EMAIL',
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: kPaddingLogin,
+                    child: TextField(
+                      autofocus: true,
+                      onTapOutside: (event) {
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey),
+                        ),
+                        border: OutlineInputBorder(),
+                        labelText: 'PASSWORD',
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Forgot username or password?',
+                      style: kMediumLabelTextStyleGreen,
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: kPaddingLogin,
@@ -114,10 +155,8 @@ class _LoginState extends State<Login> {
                     Navigator.pushNamed(context, '/passwordLogin');
                   },
                   child: Text(
-                    'CONTINUE WITH EMAIL',
-                    style: GoogleFonts.leagueSpartan(
-                      textStyle: Theme.of(context).textTheme.labelSmall,
-                    ),
+                    'SIGN IN',
+                    style: kLargeButtonTextStyle,
                   ),
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
@@ -131,41 +170,16 @@ class _LoginState extends State<Login> {
                       backgroundColor: Colors.green),
                 ),
               ),
-              // Padding(
-              //   padding: kPaddingLogin,
-              //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              //     children: [],
-              //   ),
-              // ),
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: Container(
-              //     child: Text('OR'),
-              //   ),
-              // ),
               Padding(
                 padding: kPaddingLogin,
-                child: ElevatedButton(
+                child: TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/register');
                   },
                   child: Text(
-                    'REGISTER WITH EMAIL',
-                    style: GoogleFonts.leagueSpartan(
-                      textStyle: Theme.of(context).textTheme.labelSmall,
-                    ),
+                    "Don't have an account?",
+                    style: kMediumLabelTextStyleBlack,
                   ),
-                  style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 20.0, horizontal: 20.0),
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                        side:
-                            BorderSide(color: Colors.green.shade700, width: 5),
-                      ),
-                      backgroundColor: Colors.green),
                 ),
               ),
               SizedBox(
@@ -173,6 +187,30 @@ class _LoginState extends State<Login> {
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class IntroCardSwiper extends StatelessWidget {
+  const IntroCardSwiper({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: Swiper(
+          itemBuilder: (BuildContext context, int index) {
+            return Image.network(
+              "https://via.placeholder.com/350x150",
+              fit: BoxFit.contain,
+            );
+          },
+          itemCount: 3,
+          loop: false,
+          pagination: SwiperPagination(margin: EdgeInsets.all(10)),
+          //control: SwiperControl(),
         ),
       ),
     );

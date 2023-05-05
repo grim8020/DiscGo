@@ -48,6 +48,8 @@ dependencies:
   csv: ^5.0.1
   file_picker: ^5.2.10
   device_preview: ^1.1.0
+  card_swiper : ^2.0.1
+  material_design_icons_flutter: 6.0.7096
 
 
 

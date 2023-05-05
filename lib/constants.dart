@@ -21,7 +21,27 @@ const kBoxShadow = BoxDecoration(
   ],
 );
 
-var kLargeButtonTextStyle = GoogleFonts.leagueSpartan(fontSize: 35);
+var kLargeButtonTextStyle = GoogleFonts.leagueSpartan(fontSize: 21);
+var kLargeButtonStyle = ElevatedButton.styleFrom(
+    padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 48.0),
+    elevation: 10,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20.0),
+      side: BorderSide(color: Colors.green.shade700, width: 5),
+    ),
+    backgroundColor: Colors.green);
+
+var kMediumLabelTextStyleBlack = GoogleFonts.leagueSpartan(
+    color: Colors.black,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0.15);
+
+var kMediumLabelTextStyleGreen = GoogleFonts.leagueSpartan(
+    color: Colors.green,
+    fontSize: 14,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0.15);
 
 const kBottomContainerHeight = 80.0;
 
