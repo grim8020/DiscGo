@@ -2,11 +2,10 @@ import 'package:disgo/events_list.dart';
 import 'package:disgo/featured_list.dart';
 import 'package:disgo/more_info_list.dart';
 import 'package:flutter/material.dart';
-import 'package:disgo/appBar.dart';
-import 'package:disgo/constants.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +16,7 @@ class Home extends StatelessWidget {
           color: Colors.white,
           image: DecorationImage(
             image: AssetImage('images/course.png'),
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.fitWidth,
             //opacity: 0.50,
           ),
         ),
@@ -25,17 +24,17 @@ class Home extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                kAppBar(
-                  onPressedSearch: () {
-                    Navigator.pushNamed(context, '/searchPage');
-                  },
-                  onPressedHome: () {
-                    Navigator.pushNamed(context, '/home');
-                  },
-                  onPressedProfile: () {
-                    Navigator.pushNamed(context, '/profile');
-                  },
-                ),
+                // kAppBar(
+                //   onPressedSearch: () {
+                //     Navigator.pushNamed(context, '/searchPage');
+                //   },
+                //   onPressedHome: () {
+                //     Navigator.pushNamed(context, '/home');
+                //   },
+                //   onPressedProfile: () {
+                //     Navigator.pushNamed(context, '/profile');
+                //   },
+                // ),
                 Container(
                   alignment: Alignment.bottomLeft,
                   padding:

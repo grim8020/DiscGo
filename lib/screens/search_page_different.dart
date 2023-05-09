@@ -24,6 +24,7 @@ class _SearchPageState extends State<SearchPage> {
 
   final duplicateItems = List<String>.generate(
       _data.length, (index) => _data[index][0].toString());
+
   List items = <String>[];
 
   @override
@@ -45,13 +46,14 @@ class _SearchPageState extends State<SearchPage> {
     _loadCSV();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search players'),
+        automaticallyImplyLeading: false,
+        title: const Text('Search players'),
       ),
       body: Container(
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: TextField(
                 onChanged: (value) {
                   filterSearchResults(value);
@@ -60,7 +62,7 @@ class _SearchPageState extends State<SearchPage> {
                 decoration: InputDecoration(
                   labelText: 'Search',
                   hintText: 'Search',
-                  prefixIcon: Icon(Icons.search_rounded),
+                  prefixIcon: const Icon(Icons.search_rounded),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
@@ -95,7 +97,7 @@ class _SearchPageState extends State<SearchPage> {
                   );
                 },
                 separatorBuilder: (context, index) {
-                  return Divider();
+                  return const Divider();
                 },
               ),
             ),

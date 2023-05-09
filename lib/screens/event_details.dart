@@ -1,4 +1,3 @@
-import 'package:disgo/appBar.dart';
 import 'package:disgo/bottom_button.dart';
 import 'package:disgo/components.dart';
 import 'package:flutter/material.dart';
@@ -38,22 +37,6 @@ class _EventDetailsState extends State<EventDetails> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              kAppBar(
-                onPressedSearch: () {
-                  Navigator.pushNamed(context, '/searchPage');
-                },
-                onPressedHome: () {
-                  Navigator.popAndPushNamed(context, '/home');
-                },
-                onPressedProfile: () {
-                  Navigator.pushNamed(context, '/profile');
-                },
-              ),
-              // BackButtonGreen(
-              //     onPressed: () {
-              //       Navigator.pop(context);
-              //     },
-              //     color: Colors.green),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Image.network(

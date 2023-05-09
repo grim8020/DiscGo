@@ -3,6 +3,7 @@ import 'package:disgo/screens/about_us_screen.dart';
 import 'package:disgo/screens/checkout.dart';
 import 'package:disgo/screens/contest_history_screen.dart';
 import 'package:disgo/screens/contest_statistics.dart';
+import 'package:disgo/screens/convex_appBar_nav.dart';
 import 'package:disgo/screens/disc_golf_how_to.dart';
 import 'package:disgo/screens/event_details.dart';
 import 'package:disgo/screens/faq_screen.dart';
@@ -97,6 +98,7 @@ class FantasyDiscGolf extends StatelessWidget {
         '/playerStats': (context) => const PlayerStats(),
         '/tier1': (context) => const Tier1Page(),
         '/introCardSwiper': (context) => const IntroCardSwiper(),
+        '/convexBottomBar': (context) => const ConvexBottomBar(),
       },
     );
   }

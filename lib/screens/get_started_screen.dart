@@ -29,11 +29,14 @@ class GetStartedScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
                 Align(
                   alignment: Alignment.center,
                   child: Center(
                     child: Opacity(
-                      opacity: 0.6,
+                      opacity: 0.45,
                       child: Image.asset(
                         'images/Disc Golf Player.png',
                         height: MediaQuery.of(context).size.height * 0.47,
@@ -48,7 +51,7 @@ class GetStartedScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
                     child: ElevatedButton(
                       style: kLargeButtonStyle,
                       onPressed: () => Navigator.pushNamed(context, '/login'),
@@ -73,7 +76,7 @@ class GetStartedScreen extends StatelessWidget {
                             horizontal: 10.0, vertical: 30),
                         child: Text(
                           'SIGN IN WITH',
-                          style: kLargeButtonTextStyle,
+                          style: kMediumLabelTextStyleBlack,
                         ),
                       ),
                       const Expanded(
@@ -98,8 +101,8 @@ class GetStartedScreen extends StatelessWidget {
                             Material(
                               elevation: 10,
                               shape: const CircleBorder(
-                                  //side: BorderSide(width: 5, color: Colors.green),
-                                  ),
+                                side: BorderSide(width: 2, color: Colors.green),
+                              ),
                               clipBehavior: Clip.antiAlias,
                               child: Container(
                                 decoration: BoxDecoration(
@@ -123,8 +126,8 @@ class GetStartedScreen extends StatelessWidget {
                             Material(
                               elevation: 10,
                               shape: const CircleBorder(
-                                  //side: BorderSide(width: 5, color: Colors.green),
-                                  ),
+                                side: BorderSide(width: 2, color: Colors.green),
+                              ),
                               clipBehavior: Clip.antiAlias,
                               child: Container(
                                 decoration: BoxDecoration(
@@ -148,8 +151,8 @@ class GetStartedScreen extends StatelessWidget {
                             Material(
                               elevation: 10,
                               shape: const CircleBorder(
-                                  //side: BorderSide(width: 5, color: Colors.green),
-                                  ),
+                                side: BorderSide(width: 2, color: Colors.green),
+                              ),
                               clipBehavior: Clip.antiAlias,
                               child: Container(
                                 decoration: BoxDecoration(
@@ -173,8 +176,8 @@ class GetStartedScreen extends StatelessWidget {
                             Material(
                               elevation: 10,
                               shape: const CircleBorder(
-                                  //side: BorderSide(width: 5, color: Colors.green),
-                                  ),
+                                side: BorderSide(width: 2, color: Colors.green),
+                              ),
                               clipBehavior: Clip.antiAlias,
                               child: Container(
                                 decoration: BoxDecoration(
@@ -200,7 +203,7 @@ class GetStartedScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                 ],

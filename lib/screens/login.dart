@@ -1,5 +1,4 @@
 import 'package:card_swiper/card_swiper.dart';
-import 'package:disgo/bottom_nav_back_bar.dart';
 import 'package:disgo/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -7,25 +6,33 @@ class Login extends StatefulWidget {
   const Login({super.key});
 
   @override
-  _LoginState createState() => _LoginState();
+  LoginState createState() => LoginState();
 }
 
-class _LoginState extends State<Login> {
+class LoginState extends State<Login> {
   double x = 0;
   double y = 0;
   double z = 0;
 
   FocusNode focusNode = FocusNode();
 
+  bool _showPassword = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavBackBar(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          context: context),
-      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        foregroundColor: Colors.green,
+        bottomOpacity: 0.25,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
+      resizeToAvoidBottomInset: true,
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -43,149 +50,161 @@ class _LoginState extends State<Login> {
         //Radius.circular(20.0),
         //),
         child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Stack(
-                alignment: AlignmentDirectional.topStart,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    child: Image(
-                      image: AssetImage('images/disc_golf_course.png'),
-                      fit: BoxFit.fitWidth,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Stack(
+                  alignment: AlignmentDirectional.topStart,
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      child: const Image(
+                        image: AssetImage('images/disc_golf_course.png'),
+                        fit: BoxFit.fitWidth,
+                      ),
                     ),
-                  ),
-                  Container(
-                    child: CircleAvatar(
-                      radius: 125,
-                      backgroundColor: Colors.green,
-                      child: Padding(
-                        padding: const EdgeInsets.all(15), // Border radius
-                        child: ClipOval(
-                          child: Image.asset(
-                            'images/DiscGo.png',
-                            fit: BoxFit.scaleDown,
+                    Container(
+                      transform: Matrix4(
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        -75,
+                        20,
+                        z,
+                        1,
+                      )
+                        ..rotateX(x)
+                        ..rotateY(y)
+                        ..rotateZ(-.3),
+                      child: CircleAvatar(
+                        radius: 125,
+                        backgroundColor: Colors.green,
+                        child: Padding(
+                          padding: const EdgeInsets.all(15), // Border radius
+                          child: ClipOval(
+                            child: Image.asset(
+                              'images/DiscGo.png',
+                              fit: BoxFit.scaleDown,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    transform: Matrix4(
-                      1,
-                      0,
-                      0,
-                      0,
-                      0,
-                      1,
-                      0,
-                      0,
-                      0,
-                      0,
-                      1,
-                      0,
-                      -75,
-                      20,
-                      z,
-                      1,
                     )
-                      ..rotateX(x)
-                      ..rotateY(y)
-                      ..rotateZ(-.3),
-                  )
-                ],
-              ),
-              // SizedBox(height: 25),
-
-              Column(
-                children: [
-                  Padding(
-                    padding: kPaddingLogin,
-                    child: TextField(
-                      autofocus: true,
-                      keyboardType: TextInputType.emailAddress,
-                      obscureText: false,
-                      onTapOutside: (event) {
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                  ],
+                ),
+                SizedBox(height: 25),
+                Column(
+                  children: [
+                    Padding(
+                      padding: kPaddingLogin,
+                      child: TextField(
+                        autofocus: false,
+                        keyboardType: TextInputType.emailAddress,
+                        obscureText: false,
+                        onTapOutside: (event) {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
+                        decoration: const InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.verified_user),
+                          labelText: 'USERNAME / EMAIL',
                         ),
-                        border: OutlineInputBorder(),
-                        labelText: 'USERNAME / EMAIL',
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: kPaddingLogin,
-                    child: TextField(
-                      autofocus: true,
-                      onTapOutside: (event) {
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
-                      keyboardType: TextInputType.emailAddress,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: kPaddingLogin,
+                      child: TextField(
+                        autofocus: false,
+                        onTapOutside: (event) {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        obscureText: !_showPassword,
+                        decoration: InputDecoration(
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey),
+                          ),
+                          border: const OutlineInputBorder(),
+                          prefixIcon: const Icon(Icons.security),
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() => _showPassword = !_showPassword);
+                              },
+                              icon: Icon(
+                                Icons.remove_red_eye,
+                                color:
+                                    _showPassword ? Colors.green : Colors.grey,
+                              )),
+                          labelText: 'PASSWORD',
                         ),
-                        border: OutlineInputBorder(),
-                        labelText: 'PASSWORD',
                       ),
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot username or password?',
+                        style: kMediumLabelTextStyleGreen,
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: kPaddingLogin,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/convexBottomBar');
+                    },
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 15.0, horizontal: 20.0),
+                        elevation: 10,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                          side: BorderSide(
+                              color: Colors.green.shade700, width: 5),
+                        ),
+                        backgroundColor: Colors.green),
                     child: Text(
-                      'Forgot username or password?',
-                      style: kMediumLabelTextStyleGreen,
+                      'SIGN IN',
+                      style: kLargeButtonTextStyle,
                     ),
                   ),
-                ],
-              ),
-              Padding(
-                padding: kPaddingLogin,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/passwordLogin');
-                  },
-                  child: Text(
-                    'SIGN IN',
-                    style: kLargeButtonTextStyle,
-                  ),
-                  style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 20.0, horizontal: 20.0),
-                      elevation: 10,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                        side:
-                            BorderSide(color: Colors.green.shade700, width: 5),
-                      ),
-                      backgroundColor: Colors.green),
                 ),
-              ),
-              Padding(
-                padding: kPaddingLogin,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/register');
-                  },
-                  child: Text(
-                    "Don't have an account?",
-                    style: kMediumLabelTextStyleBlack,
+                Padding(
+                  padding: kPaddingLogin,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
+                    child: Text(
+                      "Don't have an account?",
+                      style: kMediumLabelTextStyleBlack,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 50,
-              )
-            ],
+                const SizedBox(
+                  height: 20,
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -209,7 +228,7 @@ class IntroCardSwiper extends StatelessWidget {
           },
           itemCount: 3,
           loop: false,
-          pagination: SwiperPagination(margin: EdgeInsets.all(10)),
+          pagination: const SwiperPagination(margin: EdgeInsets.all(10)),
           //control: SwiperControl(),
         ),
       ),
