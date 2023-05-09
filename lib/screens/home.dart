@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           image: DecorationImage(
             image: AssetImage('images/course.png'),
@@ -37,18 +37,19 @@ class Home extends StatelessWidget {
                 // ),
                 Container(
                   alignment: Alignment.bottomLeft,
-                  padding:
-                      EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 5),
+                  padding: const EdgeInsets.only(
+                      left: 20, right: 20, top: 20, bottom: 5),
                   child: Text(
                     'FEATURED',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                 ),
-                HomeFeaturedList(),
+                const HomeFeaturedList(),
                 Container(
                     alignment: Alignment.bottomLeft,
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 20),
                     child: Text(
                       'DGPT EVENTS',
                       style: Theme.of(context)
@@ -57,10 +58,11 @@ class Home extends StatelessWidget {
                           ?.copyWith(
                               color: Colors.black, fontWeight: FontWeight.bold),
                     )),
-                HomeEventsList(),
+                const HomeEventsList(),
                 Container(
                   alignment: Alignment.bottomLeft,
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
                   child: Text(
                     'MORE INFO',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(

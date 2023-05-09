@@ -49,60 +49,58 @@ class _SearchPageState extends State<SearchPage> {
         automaticallyImplyLeading: false,
         title: const Text('Search players'),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                onChanged: (value) {
-                  filterSearchResults(value);
-                },
-                controller: editingController,
-                decoration: InputDecoration(
-                  labelText: 'Search',
-                  hintText: 'Search',
-                  prefixIcon: const Icon(Icons.search_rounded),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              onChanged: (value) {
+                filterSearchResults(value);
+              },
+              controller: editingController,
+              decoration: InputDecoration(
+                labelText: 'Search',
+                hintText: 'Search',
+                prefixIcon: const Icon(Icons.search_rounded),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25),
                 ),
               ),
             ),
-            Expanded(
-              child: ListView.separated(
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(
-                      '${items[index]}',
-                      style: TextStyle(color: Colors.black),
+          ),
+          Expanded(
+            child: ListView.separated(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    '${items[index]}',
+                    style: const TextStyle(color: Colors.black),
+                  ),
+                  trailing: TextButton.icon(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/eventDetails');
+                      //add player bio pages and navigate to them from here
+                    },
+                    label: const Text(''),
+                    icon: Row(
+                      children: const [
+                        Text('More info'),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
                     ),
-                    trailing: TextButton.icon(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/eventDetails');
-                        //add player bio pages and navigate to them from here
-                      },
-                      label: Text(''),
-                      icon: Row(
-                        children: [
-                          Text('More info'),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Icon(Icons.arrow_forward),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-                separatorBuilder: (context, index) {
-                  return const Divider();
-                },
-              ),
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const Divider();
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

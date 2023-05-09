@@ -19,7 +19,7 @@ class _LineupBuilderState extends State<LineupBuilder> {
     return Scaffold(
       bottomNavigationBar: BottomNavBackBar(
           onPressed: () {
-            Navigator.popAndPushNamed(context, '/eventDetails');
+            Navigator.pop(context);
           },
           context: context),
       body: Container(

@@ -37,10 +37,22 @@ var kMediumLabelTextStyleBlack = GoogleFonts.leagueSpartan(
     fontWeight: FontWeight.normal,
     letterSpacing: 0.15);
 
+var kLargeLabelTextStyleBlack = GoogleFonts.leagueSpartan(
+    color: Colors.black,
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0.15);
+
 var kMediumLabelTextStyleGreen = GoogleFonts.leagueSpartan(
     color: Colors.green,
     fontSize: 14,
     fontWeight: FontWeight.normal,
+    letterSpacing: 0.15);
+
+var kTitleLargeTextStyleBlack = GoogleFonts.leagueSpartan(
+    color: Colors.black,
+    fontSize: 22,
+    fontWeight: FontWeight.w500,
     letterSpacing: 0.15);
 
 const kBottomContainerHeight = 80.0;
