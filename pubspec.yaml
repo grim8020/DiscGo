@@ -98,6 +98,7 @@ flutter:
     - images/woman_grey_t.png
     - images/woman_white_t.png
     - images/male_small.png
+    - images/DiscGoShopCart.png
     - csv_files/player_stats.csv
 
 
