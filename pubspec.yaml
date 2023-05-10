@@ -52,6 +52,7 @@ dependencies:
   material_design_icons_flutter: 6.0.7096
   convex_bottom_bar: ^3.2.0
   flutter_animated_button: ^2.0.3
+  like_button: ^2.0.5
 
 
 
