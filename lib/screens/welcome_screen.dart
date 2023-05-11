@@ -50,7 +50,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           vertical: 15.0, horizontal: 100.0),
                       elevation: 10,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                        borderRadius: BorderRadius.circular(40.0),
                         side:
                             BorderSide(color: Colors.green.shade700, width: 5),
                       ),

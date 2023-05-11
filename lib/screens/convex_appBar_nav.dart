@@ -12,7 +12,7 @@ const _kpages = <String, IconData>{
   'PLAYERS': Icons.person,
   'PLAY': Icons.play_arrow,
   'STORE': Icons.store,
-  'HOW TO': Icons.how_to_reg,
+  'RESOURCES': Icons.my_library_books,
 };
 
 class ConvexBottomBar extends StatefulWidget {
