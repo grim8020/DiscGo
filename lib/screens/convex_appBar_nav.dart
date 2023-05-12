@@ -11,7 +11,7 @@ const _kpages = <String, IconData>{
   'HOME': Icons.home,
   'PLAYERS': Icons.person,
   'PLAY': Icons.play_arrow,
-  'RESOURCES': Icons.my_library_books,
+  'INFO': Icons.my_library_books,
   'STORE': Icons.store,
 };
 
@@ -27,32 +27,50 @@ class _ConvexBottomBarState extends State<ConvexBottomBar> {
   final TabStyle _tabStyle = TabStyle.reactCircle;
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 5,
-      initialIndex: widget.choice,
-      child: Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: TabBarView(
-                children: [
-                  Home(),
-                  SearchPage(),
-                  EventDetails(),
-                  DiscGolfHowTo(),
-                  Merchandise(),
-                ],
-              ),
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: CircleAvatar(
+        radius: 15,
+        backgroundColor: Colors.white,
+        child: Center(
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            onPressed: () => Navigator.pushNamed(context, '/profile'),
+            icon: const Icon(
+              Icons.settings,
+              color: Colors.green,
+              size: 25,
             ),
-          ],
+          ),
         ),
-        bottomNavigationBar: ConvexAppBar(
-          style: _tabStyle,
-          backgroundColor: Colors.green,
-          items: <TabItem>[
-            for (final entry in _kpages.entries)
-              TabItem(icon: entry.value, title: entry.key),
-          ],
+      ),
+      body: DefaultTabController(
+        length: 5,
+        initialIndex: widget.choice,
+        child: Scaffold(
+          body: Column(
+            children: [
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    const Home(),
+                    const SearchPage(),
+                    const EventDetails(),
+                    DiscGolfHowTo(),
+                    Merchandise(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          bottomNavigationBar: ConvexAppBar(
+            style: _tabStyle,
+            backgroundColor: Colors.green,
+            items: <TabItem>[
+              for (final entry in _kpages.entries)
+                TabItem(icon: entry.value, title: entry.key),
+            ],
+          ),
         ),
       ),
     );

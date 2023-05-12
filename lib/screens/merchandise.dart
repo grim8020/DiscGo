@@ -20,30 +20,6 @@ class Merchandise extends StatelessWidget {
           ),
         ),
       ),
-      // floatingActionButtonLocation:
-      //     FloatingActionButtonLocation.miniCenterFloat,
-      // floatingActionButton: SizedBox(
-      //   width: MediaQuery.of(context).size.width * .8,
-      //   child: ElevatedButton(
-      //     onPressed: () {
-      //       Navigator.pushNamed(context, '/checkout');
-      //     },
-      //     style: kLargeButtonStyle,
-      //     child: Row(
-      //       mainAxisAlignment: MainAxisAlignment.center,
-      //       children: [
-      //         Icon(
-      //           Icons.shopping_basket,
-      //           size: 30,
-      //         ),
-      //         SizedBox(
-      //           width: 15,
-      //         ),
-      //         Text('CHECKOUT', style: kLargeButtonTextStyle),
-      //       ],
-      //     ),
-      //   ),
-      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

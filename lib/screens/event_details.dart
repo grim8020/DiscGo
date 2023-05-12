@@ -28,22 +28,19 @@ class _EventDetailsState extends State<EventDetails> {
       //floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.only(bottom: 15.0),
         child: SizedBox(
-          width: double.infinity,
+          width: MediaQuery.of(context).size.width * 0.6,
           child: ElevatedButton(
             style: kLargeButtonStyle,
             onPressed: () {
               Navigator.pushNamed(context, '/lineupBuilder');
             },
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                "LET'S PLAY!",
-                style: GoogleFonts.leagueSpartan(
-                    fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
+            child: Text(
+              "LET'S PLAY!",
+              style: GoogleFonts.leagueSpartan(
+                  fontSize: 18, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
           ),
         ),
@@ -251,7 +248,7 @@ class _EventDetailsState extends State<EventDetails> {
                         ),
                         elevation: 10,
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -295,7 +292,7 @@ class _EventDetailsState extends State<EventDetails> {
                         ),
                         elevation: 10,
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -339,7 +336,7 @@ class _EventDetailsState extends State<EventDetails> {
                         ),
                         elevation: 10,
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [

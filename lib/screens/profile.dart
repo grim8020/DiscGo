@@ -1,15 +1,20 @@
-import 'package:disgo/bottom_nav_back_bar.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavBackBar(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          context: context),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        foregroundColor: Colors.green,
+        bottomOpacity: 0.25,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Container(
         child: SafeArea(
           child: Column(
