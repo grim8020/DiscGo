@@ -53,8 +53,8 @@ dependencies:
   convex_bottom_bar: ^3.2.0
   flutter_animated_button: ^2.0.3
   like_button: ^2.0.5
+  youtube_player_iframe: ^4.0.4
   youtube_player_flutter: ^8.1.2
-
 
 dev_dependencies:
   flutter_test:

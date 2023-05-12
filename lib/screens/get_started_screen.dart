@@ -50,15 +50,12 @@ class GetStartedScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 30),
-                    child: ElevatedButton(
-                      style: kLargeButtonStyle,
-                      onPressed: () => Navigator.pushNamed(context, '/login'),
-                      child: Text(
-                        'GET STARTED',
-                        style: kLargeButtonTextStyle,
-                      ),
+                  ElevatedButton(
+                    style: kLargeButtonStyle,
+                    onPressed: () => Navigator.pushNamed(context, '/login'),
+                    child: Text(
+                      'GET STARTED',
+                      style: kLargeButtonTextStyle,
                     ),
                   ),
                   Row(

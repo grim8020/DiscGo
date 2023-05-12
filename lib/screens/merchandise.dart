@@ -7,18 +7,50 @@ class Merchandise extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: BottomNavBackBar(
+      appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.15,
+        backgroundColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        automaticallyImplyLeading: false,
+        title: Container(
+          color: Colors.transparent,
+          child: Image.asset(
+            'images/DiscGoShopCart.png',
+            height: MediaQuery.of(context).size.height * 0.15,
+          ),
+        ),
+      ),
+      // floatingActionButtonLocation:
+      //     FloatingActionButtonLocation.miniCenterFloat,
+      // floatingActionButton: SizedBox(
+      //   width: MediaQuery.of(context).size.width * .8,
+      //   child: ElevatedButton(
       //     onPressed: () {
-      //       Navigator.pop(context);
+      //       Navigator.pushNamed(context, '/checkout');
       //     },
-      //     context: context),
+      //     style: kLargeButtonStyle,
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       children: [
+      //         Icon(
+      //           Icons.shopping_basket,
+      //           size: 30,
+      //         ),
+      //         SizedBox(
+      //           width: 15,
+      //         ),
+      //         Text('CHECKOUT', style: kLargeButtonTextStyle),
+      //       ],
+      //     ),
+      //   ),
+      // ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               MerchCard(),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .8,
@@ -31,13 +63,13 @@ class Merchandise extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.shopping_basket,
-                        size: 30,
+                        Icons.shopping_cart,
+                        size: 20,
                       ),
                       SizedBox(
                         width: 15,
                       ),
-                      Text('Checkout', style: kLargeButtonTextStyle),
+                      Text('CHECKOUT', style: kLargeButtonTextStyle),
                     ],
                   ),
                 ),

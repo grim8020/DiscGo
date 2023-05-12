@@ -98,7 +98,9 @@ class FantasyDiscGolf extends StatelessWidget {
         '/playerStats': (context) => const PlayerStats(),
         '/tier1': (context) => const Tier1Page(),
         '/introCardSwiper': (context) => const IntroCardSwiper(),
-        '/convexBottomBar': (context) => const ConvexBottomBar(),
+        '/convexBottomBar': (context) => const ConvexBottomBar(
+              choice: 0,
+            ),
       },
     );
   }

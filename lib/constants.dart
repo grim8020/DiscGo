@@ -43,6 +43,12 @@ var kLargeLabelTextStyleBlack = GoogleFonts.leagueSpartan(
     fontWeight: FontWeight.normal,
     letterSpacing: 0.15);
 
+var kLargeLabelTextStyleGreen = GoogleFonts.leagueSpartan(
+    color: Colors.green,
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+    letterSpacing: 0.15);
+
 var kMediumLabelTextStyleGreen = GoogleFonts.leagueSpartan(
     color: Colors.green,
     fontSize: 14,

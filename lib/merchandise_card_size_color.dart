@@ -8,19 +8,14 @@ class MerchCard extends StatefulWidget {
 }
 
 class _MerchCardState extends State<MerchCard> {
+  final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: _scrollController,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            color: Colors.transparent,
-            child: Image.asset(
-              'images/DiscGoShopCart.png',
-              height: MediaQuery.of(context).size.height * 0.15,
-            ),
-          ),
           Container(
             width: double.infinity,
             height: 30,
@@ -31,36 +26,64 @@ class _MerchCardState extends State<MerchCard> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              height: MediaQuery.of(context).size.height * 1.0,
-              child: GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.6,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10),
-                children: [
-                  CustomMerchCard(
-                    merchImage: 'images/male_small.png',
-                    merchPrice: '25.00',
-                    merchName: 'T-Shirt',
-                    merchGender: "Men",
-                    merchDescription: "Small front logo",
-                  ),
-                  CustomMerchCard(
-                    merchImage: 'images/woman_grey_t.png',
-                    merchPrice: '25.00',
-                    merchName: 'Graphic Tee',
-                    merchGender: "Women",
-                    merchDescription: 'Large front logot',
-                  ),
-                  CustomMerchCard(
-                    merchImage: 'images/male_back_grey_t.png',
-                    merchPrice: '25.00',
-                    merchName: 'Graphic Tee',
-                    merchGender: "Men",
-                    merchDescription: 'Large Back Graphic',
-                  ),
-                ],
+              height: MediaQuery.of(context).size.height * 0.55,
+              child: Scrollbar(
+                radius: Radius.circular(40),
+                thumbVisibility: true,
+                trackVisibility: true,
+                controller: _scrollController,
+                thickness: 8,
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.6,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10),
+                  children: [
+                    CustomMerchCard(
+                      merchImage: 'images/male_small.png',
+                      merchPrice: '25.00',
+                      merchName: 'T-Shirt',
+                      merchGender: "Men",
+                      merchDescription: "Small front logo",
+                    ),
+                    CustomMerchCard(
+                      merchImage: 'images/woman_grey_t.png',
+                      merchPrice: '25.00',
+                      merchName: 'Graphic Tee',
+                      merchGender: "Women",
+                      merchDescription: 'Large front logot',
+                    ),
+                    CustomMerchCard(
+                      merchImage: 'images/male_back_grey_t.png',
+                      merchPrice: '25.00',
+                      merchName: 'Graphic Tee',
+                      merchGender: "Men",
+                      merchDescription: 'Large Back Graphic',
+                    ),
+                    CustomMerchCard(
+                      merchImage: 'images/male_back_grey_t.png',
+                      merchPrice: '25.00',
+                      merchName: 'Graphic Tee',
+                      merchGender: "Men",
+                      merchDescription: 'Large Back Graphic',
+                    ),
+                    CustomMerchCard(
+                      merchImage: 'images/male_back_grey_t.png',
+                      merchPrice: '25.00',
+                      merchName: 'Graphic Tee',
+                      merchGender: "Men",
+                      merchDescription: 'Large Back Graphic',
+                    ),
+                    CustomMerchCard(
+                      merchImage: 'images/male_back_grey_t.png',
+                      merchPrice: '25.00',
+                      merchName: 'Graphic Tee',
+                      merchGender: "Men",
+                      merchDescription: 'Large Back Graphic',
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -262,5 +285,71 @@ class _ColorRadioButtonsState extends State<ColorRadioButtons> {
           )
           .toList(),
     );
+  }
+}
+
+class RawScrollbarExample extends StatefulWidget {
+  const RawScrollbarExample({super.key});
+
+  @override
+  State<RawScrollbarExample> createState() => _RawScrollbarExampleState();
+}
+
+class _RawScrollbarExampleState extends State<RawScrollbarExample> {
+  final ScrollController _firstController = ScrollController();
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+      return Row(
+        children: <Widget>[
+          SizedBox(
+              width: constraints.maxWidth / 2,
+              // When using the PrimaryScrollController and a Scrollbar
+              // together, only one ScrollPosition can be attached to the
+              // PrimaryScrollController at a time. Providing a
+              // unique scroll controller to this scroll view prevents it
+              // from attaching to the PrimaryScrollController.
+              child: Scrollbar(
+                thumbVisibility: true,
+                controller: _firstController,
+                child: ListView.builder(
+                    controller: _firstController,
+                    itemCount: 100,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text('Scrollable 1 : Index $index'),
+                      );
+                    }),
+              )),
+          SizedBox(
+              width: constraints.maxWidth / 2,
+              // This vertical scroll view has primary set to true, so it is
+              // using the PrimaryScrollController. On mobile platforms, the
+              // PrimaryScrollController automatically attaches to vertical
+              // ScrollViews, unlike on Desktop platforms, where the primary
+              // parameter is required.
+              child: Scrollbar(
+                thumbVisibility: true,
+                child: ListView.builder(
+                    primary: true,
+                    itemCount: 100,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                          height: 50,
+                          color: index.isEven
+                              ? Colors.amberAccent
+                              : Colors.blueAccent,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('Scrollable 2 : Index $index'),
+                          ));
+                    }),
+              )),
+        ],
+      );
+    });
   }
 }

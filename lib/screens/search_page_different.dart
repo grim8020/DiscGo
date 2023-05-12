@@ -1,6 +1,11 @@
 import 'package:csv/csv.dart';
+import 'package:disgo/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'convex_appBar_nav.dart';
+
+List<List<dynamic>> _data = [];
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -9,15 +14,15 @@ class SearchPage extends StatefulWidget {
   State<SearchPage> createState() => _SearchPageState();
 }
 
-List<List<dynamic>> _data = [];
-
 class _SearchPageState extends State<SearchPage> {
   void _loadCSV() async {
     final rawData = await rootBundle.loadString("csv_files/player_stats.csv");
     List<List<dynamic>> listData = const CsvToListConverter().convert(rawData);
-    setState(() {
-      _data = listData;
-    });
+    if (mounted) {
+      setState(() {
+        _data = listData;
+      });
+    }
   }
 
   TextEditingController editingController = TextEditingController();
@@ -29,8 +34,8 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   void initState() {
-    items = duplicateItems;
     super.initState();
+    items = duplicateItems;
   }
 
   void filterSearchResults(String query) {
@@ -68,14 +73,40 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
           ),
+          ElevatedButton(
+            onPressed: () {
+              // Navigator.pushReplacement(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (BuildContext context) => ConvexBottomBar(
+              //       choice: 1,
+              //     ),
+              //   ),
+              // );
+
+              Navigator.pushReplacement(
+                context,
+                PageRouteBuilder(
+                  pageBuilder: (context, animation1, animation2) =>
+                      ConvexBottomBar(choice: 1),
+                  transitionDuration: Duration.zero,
+                  reverseTransitionDuration: Duration.zero,
+                ),
+              );
+            },
+            child: Text('SHOW PLAYER LIST') /*Icon(Icons.refresh)*/,
+          ),
           Expanded(
             child: ListView.separated(
               itemCount: items.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(
-                    '${items[index]}',
-                    style: const TextStyle(color: Colors.black),
+                  title: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Text(
+                      '${items[index]}',
+                      style: kMediumLabelTextStyleBlack,
+                    ),
                   ),
                   trailing: TextButton.icon(
                     onPressed: () {
@@ -85,7 +116,7 @@ class _SearchPageState extends State<SearchPage> {
                     label: const Text(''),
                     icon: Row(
                       children: const [
-                        Text('More info'),
+                        Text('INFO'),
                         SizedBox(
                           width: 10,
                         ),

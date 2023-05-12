@@ -11,12 +11,13 @@ const _kpages = <String, IconData>{
   'HOME': Icons.home,
   'PLAYERS': Icons.person,
   'PLAY': Icons.play_arrow,
-  'STORE': Icons.store,
   'RESOURCES': Icons.my_library_books,
+  'STORE': Icons.store,
 };
 
 class ConvexBottomBar extends StatefulWidget {
-  const ConvexBottomBar({Key? key}) : super(key: key);
+  const ConvexBottomBar({Key? key, required this.choice}) : super(key: key);
+  final int choice;
 
   @override
   State<ConvexBottomBar> createState() => _ConvexBottomBarState();
@@ -28,7 +29,7 @@ class _ConvexBottomBarState extends State<ConvexBottomBar> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 5,
-      initialIndex: 0,
+      initialIndex: widget.choice,
       child: Scaffold(
         body: Column(
           children: [
@@ -38,8 +39,8 @@ class _ConvexBottomBarState extends State<ConvexBottomBar> {
                   Home(),
                   SearchPage(),
                   EventDetails(),
-                  Merchandise(),
                   DiscGolfHowTo(),
+                  Merchandise(),
                 ],
               ),
             ),

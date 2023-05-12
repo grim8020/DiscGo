@@ -29,24 +29,39 @@ class DiscGolfHowTo extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
-              Text(
-                'PLAY LIKE THE PROS:',
-                style: kTitleLargeTextStyleBlack,
-              ),
-              Text(
-                'RESOURCES FOR DISC GOLF SUCCESS',
-                style: kMediumLabelTextStyleBlack,
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    Text(
+                      'PLAY LIKE THE PROS:',
+                      style: kTitleLargeTextStyleBlack,
+                    ),
+                    Text(
+                      'RESOURCES FOR DISC GOLF SUCCESS',
+                      style: kMediumLabelTextStyleBlack,
+                    ),
+                  ],
+                ),
               ),
               Divider(),
-              Text(
-                'DISC GOLF TUTORIALS',
-                style: kLargeLabelTextStyleBlack,
-              ),
-              SizedBox(
-                child: YouTubePlayerTutorial(
-                  videoLink: 'https://www.youtube.com/watch?v=iSjQ31nxMlA',
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'DISC GOLF TUTORIALS',
+                  style: kLargeLabelTextStyleGreen,
                 ),
-                height: MediaQuery.of(context).size.height * 0.4,
+              ),
+              Expanded(
+                child: YouTubePlayerWidget(),
+              ),
+              Divider(),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'MEET THE PROS',
+                  style: kLargeLabelTextStyleGreen,
+                ),
               ),
               Divider(),
             ],
@@ -57,52 +72,96 @@ class DiscGolfHowTo extends StatelessWidget {
   }
 }
 
-class YouTubePlayerTutorial extends StatefulWidget {
-  final String videoLink;
-
-  YouTubePlayerTutorial({required this.videoLink});
+class YouTubePlayerWidget extends StatefulWidget {
+  const YouTubePlayerWidget({super.key});
 
   @override
-  _YouTubePlayerTutorialState createState() => _YouTubePlayerTutorialState();
+  State<YouTubePlayerWidget> createState() => _YouTubePlayerWidgetState();
 }
 
-class _YouTubePlayerTutorialState extends State<YouTubePlayerTutorial> {
-  late YoutubePlayerController _controller;
-
-  @override
-  void initState() {
-    _controller = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(widget.videoLink).toString(),
-      flags: YoutubePlayerFlags(
-          mute: false,
-          autoPlay: true,
-          disableDragSeek: true,
-          loop: false,
-          enableCaption: false),
-    );
-
-    super.initState();
-  }
+class _YouTubePlayerWidgetState extends State<YouTubePlayerWidget> {
+  List<String> videosList = <String>[
+    "https://www.youtube.com/watch?v=T7Buk1Hn8jM",
+    "https://www.youtube.com/watch?v=y9Zp41Z8YCM",
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: YoutubePlayer(
-        controller: _controller,
-        showVideoProgressIndicator: true,
-        bottomActions: <Widget>[
-          const SizedBox(width: 14.0),
-          CurrentPosition(),
-          const SizedBox(width: 8.0),
-          ProgressBar(isExpanded: true),
-          RemainingDuration(),
-        ],
-        aspectRatio: 4 / 3,
-        progressIndicatorColor: Colors.white,
-        onReady: () {
-          print('Player is ready.');
-        },
+      body: SafeArea(
+        child: GridView.builder(
+          shrinkWrap: true,
+          itemCount: videosList.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 15,
+            childAspectRatio: 16 / 9,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            final YoutubePlayerController controller = YoutubePlayerController(
+              initialVideoId: YoutubePlayer.convertUrlToId(
+                    videosList[index],
+                  ) ??
+                  "",
+              flags: const YoutubePlayerFlags(autoPlay: false),
+            );
+            return YoutubePlayer(
+              controller: controller,
+              // showVideoProgressIndicator: true,
+            );
+          },
+        ),
       ),
     );
   }
 }
+
+// class AboutTopic extends StatefulWidget {
+//   final String videoLink;
+//
+//   AboutTopic({required this.videoLink});
+//
+//   @override
+//   _AboutTopicState createState() => _AboutTopicState();
+// }
+//
+// class _AboutTopicState extends State<AboutTopic> {
+//   late YoutubePlayerController _controller;
+//
+//   @override
+//   void initState() {
+//     _controller = YoutubePlayerController(
+//       initialVideoId: YoutubePlayer.convertUrlToId(widget.videoLink).toString(),
+//       flags: YoutubePlayerFlags(
+//           mute: false,
+//           autoPlay: true,
+//           disableDragSeek: true,
+//           loop: false,
+//           enableCaption: false),
+//     );
+//
+//     super.initState();
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: YoutubePlayer(
+//         controller: _controller,
+//         showVideoProgressIndicator: true,
+//         bottomActions: <Widget>[
+//           const SizedBox(width: 14.0),
+//           CurrentPosition(),
+//           const SizedBox(width: 8.0),
+//           ProgressBar(isExpanded: true),
+//           RemainingDuration(),
+//         ],
+//         aspectRatio: 4 / 3,
+//         progressIndicatorColor: Colors.white,
+//         onReady: () {
+//           print('Player is ready.');
+//         },
+//       ),
+//     );
+//   }
+// }
